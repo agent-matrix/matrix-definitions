@@ -1,0 +1,7 @@
+schema_version: '1.0'
+publication_gates:
+- validated-only
+- standards-report-required
+- metadata-required
+- signed-only-for-production
+- provenance-required-for-production

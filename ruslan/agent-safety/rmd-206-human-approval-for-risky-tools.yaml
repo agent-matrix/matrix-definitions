@@ -1,0 +1,35 @@
+schema_version: '1.0'
+id: RMD-206
+title: Risky tools require human approval mode
+domain: ruslan-agent-safety
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Tools that write files, call external APIs, send messages, modify repositories, or execute commands require approval
+  mode unless explicitly waived.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: create_human_approval_gate
+validation:
+  kind: risky_tools_require_approval
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-agent-safety
+  failure_message: Tools that write files, call external APIs, send messages, modify repositories, or execute commands require
+    approval mode unless explicitly waived.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

@@ -1,0 +1,150 @@
+schema_version: '1.0'
+sources:
+- id: nist.ssdf.sp800-218
+  name: NIST SP 800-218 Secure Software Development Framework
+  authority: NIST
+  tier: 1
+  type: official-standard
+  url: https://csrc.nist.gov/pubs/sp/800/218/final
+  refresh_policy: monthly
+  domains:
+  - secure-development
+  - supply-chain
+- id: owasp.asvs
+  name: OWASP Application Security Verification Standard
+  authority: OWASP
+  tier: 1
+  type: official-standard
+  url: https://owasp.org/www-project-application-security-verification-standard/
+  refresh_policy: monthly
+  domains:
+  - application-security
+- id: openssf.slsa
+  name: Supply-chain Levels for Software Artifacts
+  authority: OpenSSF
+  tier: 1
+  type: official-framework
+  url: https://slsa.dev/
+  refresh_policy: monthly
+  domains:
+  - supply-chain
+- id: github.actions.secure-use
+  name: GitHub Actions Secure Use Reference
+  authority: GitHub
+  tier: 1
+  type: official-docs
+  url: https://docs.github.com/en/actions/reference/security/secure-use
+  refresh_policy: monthly
+  domains:
+  - github-actions
+  - supply-chain
+- id: github.artifact-attestations
+  name: GitHub Artifact Attestations
+  authority: GitHub
+  tier: 1
+  type: official-docs
+  url: https://docs.github.com/en/actions/concepts/security/artifact-attestations
+  refresh_policy: monthly
+  domains:
+  - supply-chain
+- id: docker.build.best-practices
+  name: Docker Build Best Practices
+  authority: Docker
+  tier: 1
+  type: official-docs
+  url: https://docs.docker.com/build/building/best-practices/
+  refresh_policy: monthly
+  domains:
+  - docker
+- id: python.packaging.pyproject
+  name: Python Packaging User Guide - pyproject.toml
+  authority: Python Packaging Authority
+  tier: 1
+  type: official-docs
+  url: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+  refresh_policy: monthly
+  domains:
+  - python
+- id: fastapi.docs.security
+  name: FastAPI Security Documentation
+  authority: FastAPI
+  tier: 1
+  type: official-docs
+  url: https://fastapi.tiangolo.com/tutorial/security/
+  refresh_policy: monthly
+  domains:
+  - fastapi
+  - application-security
+- id: matrix.agent-safety.prompt-injection
+  name: Matrix Agent Safety Prompt Injection Rules
+  authority: Ruslan Magana Definitions
+  tier: 1
+  type: internal-standard
+  url: https://ruslanmv.com/definitions/agent-safety
+  refresh_policy: monthly
+  domains:
+  - ai-agents
+- id: matrix.agent-safety.tool-permissions
+  name: Matrix Agent Safety Tool Permission Rules
+  authority: Ruslan Magana Definitions
+  tier: 1
+  type: internal-standard
+  url: https://ruslanmv.com/definitions/agent-safety
+  refresh_policy: monthly
+  domains:
+  - ai-agents
+- id: matrix.agent-safety.memory-safety
+  name: Matrix Agent Safety Memory Boundary Rules
+  authority: Ruslan Magana Definitions
+  tier: 1
+  type: internal-standard
+  url: https://ruslanmv.com/definitions/agent-safety
+  refresh_policy: monthly
+  domains:
+  - ai-agents
+- id: matrix.agent-safety.human-approval
+  name: Matrix Agent Safety Human Approval Rules
+  authority: Ruslan Magana Definitions
+  tier: 1
+  type: internal-standard
+  url: https://ruslanmv.com/definitions/agent-safety
+  refresh_policy: monthly
+  domains:
+  - ai-agents
+- id: owasp.top10
+  name: OWASP Top 10
+  authority: OWASP
+  tier: 1
+  type: official-standard
+  url: https://owasp.org/www-project-top-ten/
+  refresh_policy: monthly
+  domains:
+  - application-security
+- id: nextjs.docs.app-router
+  name: Next.js App Router Documentation
+  authority: Vercel / Next.js
+  tier: 1
+  type: official-docs
+  url: https://nextjs.org/docs/app
+  refresh_policy: monthly
+  domains:
+  - frontend
+- id: github.dependabot
+  name: GitHub Dependabot Documentation
+  authority: GitHub
+  tier: 1
+  type: official-docs
+  url: https://docs.github.com/en/code-security/dependabot
+  refresh_policy: monthly
+  domains:
+  - supply-chain
+  - github-actions
+- id: openssf.scorecard
+  name: OpenSSF Scorecard
+  authority: OpenSSF
+  tier: 1
+  type: official-tooling
+  url: https://github.com/ossf/scorecard
+  refresh_policy: monthly
+  domains:
+  - supply-chain

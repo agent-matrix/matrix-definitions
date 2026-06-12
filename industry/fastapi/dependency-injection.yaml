@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: FASTAPI-006
+title: Use dependency injection for shared services
+domain: fastapi
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: FastAPI templates should use dependency injection for settings, clients, and services when practical.
+source_refs:
+- fastapi.docs.security
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: dependency_injection_guidance_present
+matrix_builder:
+  expose_in_report: true
+  report_section: fastapi
+  failure_message: FastAPI templates should use dependency injection for settings, clients, and services when practical.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

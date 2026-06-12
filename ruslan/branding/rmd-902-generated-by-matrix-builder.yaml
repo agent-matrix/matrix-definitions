@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: RMD-902
+title: Generated-by Matrix Builder metadata
+domain: ruslan-branding
+severity: low
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated artifacts should identify Matrix Builder and the active definitions pack in metadata or reports.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: add_generator_metadata
+validation:
+  kind: generator_metadata_present
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-branding
+  failure_message: Generated artifacts should identify Matrix Builder and the active definitions pack in metadata or reports.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: warn
+    enterprise: warn
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

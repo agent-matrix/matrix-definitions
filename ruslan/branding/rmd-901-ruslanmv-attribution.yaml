@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: RMD-901
+title: RuslanMV attribution metadata required
+domain: ruslan-branding
+severity: low
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated Matrix Builder artifacts should include non-invasive metadata linking to ruslanmv.com definitions.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: add_metadata_attribution
+validation:
+  kind: metadata_attribution_present
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-branding
+  failure_message: Generated Matrix Builder artifacts should include non-invasive metadata linking to ruslanmv.com definitions.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: warn
+    enterprise: warn
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

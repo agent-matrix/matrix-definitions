@@ -1,0 +1,17 @@
+schema_version: '1.0'
+policy:
+  name: Standards Lock Rules
+  fail_on:
+  - missing_lock
+  - lock_checksum_mismatch
+  - unknown_rule_id
+  - unsigned_definitions_pack
+  - changed_standards_pack_without_new_blueprint_version
+  inputs:
+  - MATRIX_STANDARDS.lock
+  - packs/current/manifest.json
+  - checksums.txt
+rules:
+- RMD-002
+- RMD-103
+- RMD-115

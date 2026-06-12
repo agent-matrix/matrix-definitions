@@ -1,0 +1,41 @@
+schema_version: '1.0'
+id: GHA-008
+title: Workflow linting is required
+domain: github-actions
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated repositories with GitHub Actions should include workflow linting or validation to catch insecure or invalid workflows.
+source_refs:
+- github.actions.secure-use
+applies_to:
+  project_types:
+  - all
+  files: &id001
+  - .github/workflows/ci.yml
+generator:
+  action: render_ci_step
+  required_files: &id002
+  - .github/workflows/ci.yml
+  template_requirements:
+  - workflow_lint_required
+  files: *id001
+validation:
+  kind: github_workflow_lint_configured
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: github-actions
+  failure_message: Generated repositories with GitHub Actions should include workflow linting or validation to catch insecure or invalid workflows.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

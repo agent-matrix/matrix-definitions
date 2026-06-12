@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: ASVS-002
+title: API contracts and error behavior required
+domain: application-security
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: API templates must define request/response schemas and avoid leaking internals in errors.
+source_refs:
+- owasp.asvs
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: api_contract_and_error_check
+matrix_builder:
+  expose_in_report: true
+  report_section: application-security
+  failure_message: API templates must define request/response schemas and avoid leaking internals in errors.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

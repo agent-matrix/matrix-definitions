@@ -1,0 +1,30 @@
+name: Sign standards pack
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: sigstore/cosign-installer@v3
+      - name: Build release bundle
+        run: |
+          python -m pip install --upgrade pyyaml jsonschema
+          python tools/build_pack.py
+          python tools/generate_sbom.py
+          python tools/generate_provenance.py
+          python tools/create_release_bundle.py
+      - name: Sign release tarball with Cosign keyless signing
+        env:
+          COSIGN_YES: 'true'
+        run: |
+          VERSION=$(cat VERSION)
+          mkdir -p packs/current/signatures releases/${VERSION}
+          cosign sign-blob --yes --bundle packs/current/signatures/cosign.bundle.json releases/${VERSION}/matrix-definitions-${VERSION}.tar.gz
+          cp packs/current/signatures/cosign.bundle.json releases/${VERSION}/cosign.bundle.json

@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: SLSA-004
+title: Artifact attestation metadata required for signed releases
+domain: supply-chain
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Signed releases should include attestation metadata that links artifacts to build provenance.
+source_refs:
+- github.artifact-attestations
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: attestation_metadata_required
+matrix_builder:
+  expose_in_report: true
+  report_section: supply-chain
+  failure_message: Signed releases should include attestation metadata that links artifacts to build provenance.
+agent_generator:
+  enforcement:
+    starter: 'off'
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

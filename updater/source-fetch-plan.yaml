@@ -1,0 +1,10 @@
+schema_version: '1.0'
+sources:
+- nist.ssdf.sp800-218
+- owasp.asvs
+- openssf.slsa
+- github.actions.secure-use
+- github.artifact-attestations
+- docker.build.best-practices
+- python.packaging.pyproject
+- fastapi.docs.security

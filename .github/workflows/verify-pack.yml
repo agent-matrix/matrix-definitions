@@ -1,0 +1,44 @@
+name: Verify standards pack
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'packs/**'
+      - 'industry/**'
+      - 'ruslan/**'
+      - 'matrixhub/**'
+      - 'tools/**'
+      - 'schemas/**'
+
+permissions:
+  contents: read
+  id-token: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: python -m pip install --upgrade pyyaml jsonschema pytest
+      - name: Rebuild and verify pack
+        run: |
+          python tools/build_pack.py
+          python tools/generate_sbom.py
+          python tools/generate_provenance.py
+          python tools/create_release_bundle.py
+          python tools/verify_pack.py
+          pytest -q
+      - uses: sigstore/cosign-installer@v3
+      - name: Verify Cosign bundle when present
+        continue-on-error: true
+        run: |
+          VERSION=$(cat VERSION)
+          if [ -f releases/${VERSION}/cosign.bundle.json ]; then
+            cosign verify-blob \
+              --bundle releases/${VERSION}/cosign.bundle.json \
+              --certificate-identity-regexp 'https://github.com/.*/.github/workflows/.*' \
+              --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+              releases/${VERSION}/matrix-definitions-${VERSION}.tar.gz
+          fi

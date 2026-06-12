@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: python.pytest
+name: pytest documentation
+authority: pytest
+tier: 2
+type: trusted-ecosystem-docs
+url: https://docs.pytest.org/
+refresh_policy: monthly
+domains:
+- python

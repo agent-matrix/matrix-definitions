@@ -1,0 +1,8 @@
+schema_version: '1.0'
+profile: open-source
+extends: standard
+required_rules:
+- SSDF-002
+- SUPPLY-001
+- GHA-003
+description: Profile for public repositories and reusable templates.

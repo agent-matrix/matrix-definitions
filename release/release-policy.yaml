@@ -1,0 +1,26 @@
+schema_version: '1.0'
+policy:
+  name: Matrix Definitions Release Policy
+  owner: Ruslan Magana
+  release_artifacts:
+  - tar.gz
+  - zip
+  - checksums.txt
+  - sbom.cdx.json
+  - provenance.intoto.jsonl
+  - cosign.bundle.json
+  - github-attestation.json
+  required_checks:
+  - schema_validation
+  - rule_validation
+  - contract_validation
+  - pack_build
+  - checksum_verification
+  - sbom_generation
+  - provenance_generation
+  - cosign_signature
+  - github_attestation
+  activation_rule: A pack becomes current only after build, verification, signing, and release approval.
+  agent_generator_trust_rule: agent-generator must verify manifest, checksums, pack signature metadata, and allowed version
+    range before loading a pack.
+

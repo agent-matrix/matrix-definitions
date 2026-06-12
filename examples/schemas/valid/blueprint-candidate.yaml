@@ -1,0 +1,10 @@
+schema_version: '1.0'
+candidate_id: github-repo-intelligence-agent
+name: GitHub Repo Intelligence Agent
+summary: A controlled AI app blueprint for repository analysis.
+template: github-repo-agent
+quality_level: standard
+score: 92
+why: It is useful, demo-friendly, and portfolio-ready.
+risks:
+- Requires GitHub API rate-limit handling

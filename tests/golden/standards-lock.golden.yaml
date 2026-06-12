@@ -1,0 +1,23 @@
+schema_version: '1.0'
+generated_at: '2026-06-12T00:00:00Z'
+definitions_pack:
+  id: matrix-definitions-current
+  version: 2026.06.0
+quality_level: standard
+rules:
+- RMD-001
+- RMD-002
+- RMD-003
+- RMD-004
+- RMD-006
+- RMD-009
+- GHA-001
+- GHA-002
+- PY-001
+- FASTAPI-003
+- AGENT-001
+control_files:
+- MATRIX_BLUEPRINT.yaml
+- MATRIX_STANDARDS.lock
+- MATRIX_ALLOWED_CHANGES.md
+checksums: {}

@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: SLSA-005
+title: Release artifacts should be signed
+domain: supply-chain
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Production releases should include a signature bundle or equivalent verification metadata.
+source_refs:
+- openssf.slsa
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: signature_metadata_present
+matrix_builder:
+  expose_in_report: true
+  report_section: supply-chain
+  failure_message: Production releases should include a signature bundle or equivalent verification metadata.
+agent_generator:
+  enforcement:
+    starter: 'off'
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

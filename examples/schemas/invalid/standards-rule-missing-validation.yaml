@@ -1,0 +1,9 @@
+schema_version: '1.0'
+id: PY-999
+title: Broken sample rule
+domain: python
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+summary: This intentionally invalid sample is missing validation and agent_generator.

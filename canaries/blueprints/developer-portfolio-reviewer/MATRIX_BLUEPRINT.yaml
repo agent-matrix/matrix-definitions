@@ -1,0 +1,65 @@
+schema_version: '1.0'
+blueprint_id: developer-portfolio-reviewer
+name: Developer Portfolio Reviewer
+project_type: fullstack-ai-app
+goal: Review a developer portfolio and suggest concrete improvements for hiring visibility.
+target_user: developers building portfolio projects
+quality_level: starter
+allowed_stack:
+  frontend: Next.js App Router with TypeScript and Tailwind CSS
+  backend: FastAPI with Python
+  database: none for starter profile
+  ai_layer: provider-agnostic LLM adapter
+  retrieval: local vector index
+required_pages:
+- Landing
+- Review
+- Result
+required_api_routes:
+- method: GET
+  path: /health
+  purpose: health check
+- method: POST
+  path: /api/review-portfolio
+  purpose: review portfolio
+required_files:
+- README.md
+- .env.example
+- MATRIX_BLUEPRINT.yaml
+- MATRIX_STANDARDS.lock
+- MATRIX_TASKS.md
+- MATRIX_ALLOWED_CHANGES.md
+- MATRIX_ACCEPTANCE_CRITERIA.md
+- MATRIX_VALIDATION.md
+- docs/architecture.md
+- docs/security.md
+- docs/standards-report.md
+- frontend/package.json
+- backend/pyproject.toml
+- backend/app/main.py
+- backend/tests/test_health.py
+forbidden:
+- Do not add authentication in the MVP.
+- Do not add payments or billing.
+- Do not replace FastAPI with another backend framework.
+- Do not replace SQLite without an approved dependency change.
+- Do not hardcode secrets.
+- Do not modify Matrix control files unless Matrix Builder regenerates them.
+allowed_change_scopes:
+- task_id: T01-backend-health
+  description: Implement the FastAPI health endpoint and tests.
+  allowed_files:
+  - backend/app/main.py
+  - backend/tests/test_health.py
+- task_id: T02-analyze-api
+  description: Implement repository analysis endpoint with validation.
+  allowed_files:
+  - backend/app/api/analyze.py
+  - backend/app/schemas/report.py
+  - backend/tests/test_analyze.py
+- task_id: T03-frontend-form
+  description: Implement the repository analysis form and loading state.
+  allowed_files:
+  - frontend/app/page.tsx
+  - frontend/components/AnalyzeForm.tsx
+  - frontend/components/LoadingState.tsx

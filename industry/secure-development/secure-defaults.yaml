@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: SSDF-004
+title: Secure defaults required
+domain: secure-development
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated templates should prefer secure defaults and document intentional insecure development-only settings.
+source_refs:
+- nist.ssdf.sp800-218
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: secure_defaults_check
+matrix_builder:
+  expose_in_report: true
+  report_section: secure-development
+  failure_message: Generated templates should prefer secure defaults and document intentional insecure development-only settings.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

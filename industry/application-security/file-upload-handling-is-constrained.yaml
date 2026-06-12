@@ -1,0 +1,43 @@
+schema_version: '1.0'
+id: ASVS-008
+title: File upload handling is constrained
+domain: application-security
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated applications that accept files must declare size limits, allowed content types, and storage boundaries.
+source_refs:
+- owasp.asvs
+applies_to:
+  project_types:
+  - api-service
+  - fastapi-backend
+  - fullstack-ai-app
+  files: &id001
+  - docs/security.md
+generator:
+  action: render_doc_section
+  required_files: &id002
+  - docs/security.md
+  template_requirements:
+  - file_upload_policy_required
+  files: *id001
+validation:
+  kind: file_upload_policy_check
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: application-security
+  failure_message: Generated applications that accept files must declare size limits, allowed content types, and storage boundaries.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

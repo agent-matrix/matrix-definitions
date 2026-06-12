@@ -1,0 +1,7 @@
+schema_version: '1.0'
+quality_levels:
+- starter
+- standard
+- production
+- enterprise
+default: standard

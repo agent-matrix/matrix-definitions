@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: AGENT-006
+title: Agent audit events required
+domain: ai-agents
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Agent templates must define audit events for tool calls, approvals, refusals, and validation failures.
+source_refs:
+- matrix.agent-safety.tool-permissions
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: agent_audit_events_required
+matrix_builder:
+  expose_in_report: true
+  report_section: ai-agents
+  failure_message: Agent templates must define audit events for tool calls, approvals, refusals, and validation failures.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

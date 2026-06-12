@@ -1,0 +1,35 @@
+schema_version: '1.0'
+id: RMD-101
+title: AI coder is worker, not architect
+domain: ruslan-ai-coder-control
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: AI coders receive implementation tasks. They must not redefine architecture, stack, rules, quality profile, or MatrixHub
+  publication requirements.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: generate_task_scoped_prompt
+validation:
+  kind: architecture_drift_detection
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-ai-coder-control
+  failure_message: AI coders receive implementation tasks. They must not redefine architecture, stack, rules, quality profile,
+    or MatrixHub publication requirements.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

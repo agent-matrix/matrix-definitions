@@ -1,0 +1,674 @@
+schema_version: '1.0'
+mappings:
+- rule: AGENT-006
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-009
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-015
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-016
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-007
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-014
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-005
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-004
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-013
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-010
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-003
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-011
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-001
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-008
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-012
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: AGENT-002
+  domain: ai-agents
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-006
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-002
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-005
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-007
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-004
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-008
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-001
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-000
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: OWASP-001
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: ASVS-003
+  domain: application-security
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-012
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-001
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-009
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-010
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-006
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-005
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-007
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-003
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-014
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-004
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-013
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-008
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-002
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FASTAPI-011
+  domain: fastapi
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FE-001
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FE-005
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FE-002
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FE-007
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FE-003
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FE-006
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FE-008
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: NEXT-004
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: NEXT-001
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: NEXT-003
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: NEXT-002
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: FE-004
+  domain: frontend
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-201
+  domain: ruslan-agent-safety
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-202
+  domain: ruslan-agent-safety
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-203
+  domain: ruslan-agent-safety
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-204
+  domain: ruslan-agent-safety
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-205
+  domain: ruslan-agent-safety
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-206
+  domain: ruslan-agent-safety
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-101
+  domain: ruslan-ai-coder-control
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-102
+  domain: ruslan-ai-coder-control
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-103
+  domain: ruslan-ai-coder-control
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-104
+  domain: ruslan-ai-coder-control
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-105
+  domain: ruslan-ai-coder-control
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-106
+  domain: ruslan-ai-coder-control
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-901
+  domain: ruslan-branding
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-902
+  domain: ruslan-branding
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-903
+  domain: ruslan-branding
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-001
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-002
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-003
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-004
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-005
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-006
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-007
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-008
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-009
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-010
+  domain: ruslan-core
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-301
+  domain: ruslan-matrixhub
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-302
+  domain: ruslan-matrixhub
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-303
+  domain: ruslan-matrixhub
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-304
+  domain: ruslan-matrixhub
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-305
+  domain: ruslan-matrixhub
+  blueprint_fields:
+  - standards_profile
+  - required_files
+  - validation_policy
+  contract_effect: locks_generated_project_behavior
+- rule: RMD-107
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-108
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-109
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-110
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-111
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-112
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-113
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-114
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-115
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-116
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-117
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-118
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-119
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope
+- rule: RMD-120
+  blueprint_fields:
+  - allowed_stack
+  - required_files
+  - forbidden
+  - allowed_change_scopes
+  effect: lock_blueprint_scope

@@ -1,0 +1,6 @@
+schema_version: '1.0'
+profile: local-first
+extends: standard
+required_rules:
+- RMD-007
+description: Profile for projects that must run locally by default.

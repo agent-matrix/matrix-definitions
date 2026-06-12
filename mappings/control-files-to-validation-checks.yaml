@@ -1,0 +1,28 @@
+schema_version: '1.0'
+mappings:
+- control_file: MATRIX_BLUEPRINT.yaml
+  schema: matrix-blueprint.schema.json
+  validation_checks:
+  - architecture_drift_detection_required
+  - required_file_check
+  - required_api_route_check
+- control_file: MATRIX_STANDARDS.lock
+  schema: matrix-standards-lock.schema.json
+  validation_checks:
+  - standards_lock_integrity
+  - rule_id_resolution
+  - checksum_verification
+- control_file: MATRIX_TASKS.md
+  validation_checks:
+  - task_sequence_check
+  - allowed_file_scope_check
+- control_file: MATRIX_ALLOWED_CHANGES.md
+  validation_checks:
+  - file_boundary_check
+  - immutable_control_file_check
+- control_file: MATRIX_ACCEPTANCE_CRITERIA.md
+  validation_checks:
+  - acceptance_criteria_present
+- control_file: MATRIX_VALIDATION.md
+  validation_checks:
+  - validation_commands_required

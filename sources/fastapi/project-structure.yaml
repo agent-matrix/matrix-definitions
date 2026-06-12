@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: fastapi.docs.bigger-applications
+name: FastAPI bigger applications docs
+authority: FastAPI
+tier: 1
+type: source-metadata
+url: https://fastapi.tiangolo.com/tutorial/bigger-applications/
+refresh_policy: monthly
+domains:
+- fastapi

@@ -1,0 +1,306 @@
+schema_version: '1.0'
+mappings:
+- rule: AGENT-009
+  files:
+  - agent/permissions.yaml
+- rule: AGENT-015
+  files:
+  - docs/tool-sandbox.md
+- rule: AGENT-016
+  files:
+  - agent/approval-policy.yaml
+- rule: AGENT-014
+  files:
+  - evals/golden_cases.json
+- rule: AGENT-013
+  files:
+  - docs/memory-policy.md
+- rule: AGENT-010
+  files:
+  - agent/network-policy.yaml
+- rule: AGENT-011
+  files:
+  - docs/prompt-boundaries.md
+- rule: AGENT-012
+  files:
+  - schemas/source-provenance.schema.json
+- rule: ASVS-006
+  files:
+  - backend/app/schemas/
+- rule: ASVS-007
+  files:
+  - docs/security.md
+- rule: ASVS-008
+  files:
+  - docs/security.md
+- rule: ASVS-003
+  files:
+  - .env.example
+- rule: DOCKER-011
+  files:
+  - Dockerfile
+- rule: DOCKER-007
+  files:
+  - Dockerfile
+- rule: DOCKER-009
+  files:
+  - Dockerfile
+  - backend/app/api/health.py
+- rule: DOCKER-001
+  files:
+  - Dockerfile
+- rule: DOCKER-002
+  files:
+  - .dockerignore
+- rule: DOCKER-012
+  files:
+  - Dockerfile
+- rule: DOCKER-008
+  files:
+  - Dockerfile
+  - docker-compose.yml
+- rule: DOCKER-010
+  files:
+  - Dockerfile
+- rule: FASTAPI-012
+  files:
+  - backend/app/middleware/request_id.py
+- rule: FASTAPI-009
+  files:
+  - backend/app/core/errors.py
+- rule: FASTAPI-010
+  files:
+  - backend/app/core/config.py
+- rule: FASTAPI-007
+  files:
+  - backend/app/api/
+- rule: FASTAPI-014
+  files:
+  - backend/app/main.py
+- rule: FASTAPI-013
+  files:
+  - docs/security.md
+- rule: FASTAPI-008
+  files:
+  - backend/app/schemas/
+- rule: FASTAPI-011
+  files:
+  - .env.example
+  - backend/app/core/config.py
+- rule: FE-005
+  files:
+  - frontend/
+- rule: FE-007
+  files:
+  - frontend/
+- rule: FE-006
+  files:
+  - frontend/
+- rule: FE-008
+  files:
+  - docs/security.md
+  - frontend/next.config.ts
+- rule: NEXT-004
+  files:
+  - frontend/app/error.tsx
+  - frontend/app/loading.tsx
+- rule: NEXT-003
+  files:
+  - frontend/.env.example
+- rule: NEXT-002
+  files:
+  - frontend/app/
+  - frontend/components/
+- rule: GHA-012
+  files:
+  - .github/workflows/ci.yml
+  - tests/
+- rule: GHA-003
+  files:
+  - CODEOWNERS
+- rule: GHA-011
+  files:
+  - .github/workflows/release.yml
+- rule: GHA-009
+  files:
+  - .github/workflows/ci.yml
+  - .github/workflows/release.yml
+- rule: GHA-010
+  files:
+  - .github/workflows/*.yml
+- rule: GHA-008
+  files:
+  - .github/workflows/ci.yml
+- rule: OBS-006
+  files:
+  - schemas/audit-event.schema.json
+- rule: OBS-008
+  files:
+  - docs/operations.md
+- rule: OBS-005
+  files:
+  - docs/observability.md
+- rule: OBS-007
+  files:
+  - docs/security.md
+- rule: PY-014
+  files:
+  - docs/dependency-policy.md
+- rule: PY-011
+  files:
+  - .env.example
+- rule: PY-013
+  files:
+  - pyproject.toml
+- rule: PY-001
+  files:
+  - pyproject.toml
+- rule: PY-010
+  files:
+  - pyproject.toml
+  - tests/
+- rule: PY-007
+  files:
+  - pyproject.toml
+- rule: PY-008
+  files:
+  - pyproject.toml
+- rule: PY-012
+  files:
+  - pyproject.toml
+- rule: PY-015
+  files:
+  - src/
+- rule: PY-009
+  files:
+  - pyproject.toml
+- rule: SSDF-001
+  files:
+  - docs/security.md
+- rule: SSDF-002
+  files:
+  - SECURITY.md
+- rule: SUPPLY-001
+  files:
+  - .github/dependabot.yml
+- rule: SUPPLY-003
+  files:
+  - docs/dependency-policy.md
+- rule: SUPPLY-005
+  files:
+  - LICENSE
+  - docs/license-policy.md
+- rule: SLSA-006
+  files:
+  - releases/
+- rule: SUPPLY-006
+  files:
+  - sbom.cdx.json
+- rule: SUPPLY-004
+  files:
+  - .github/workflows/ci.yml
+- rule: RMD-201
+  files:
+  - agent/permissions.yaml
+- rule: RMD-102
+  files:
+  - MATRIX_ACCEPTANCE_CRITERIA.md
+  - MATRIX_TASKS.md
+  - MATRIX_VALIDATION.md
+- rule: RMD-001
+  files:
+  - MATRIX_BLUEPRINT.yaml
+- rule: RMD-002
+  files:
+  - MATRIX_STANDARDS.lock
+- rule: RMD-003
+  files:
+  - MATRIX_ALLOWED_CHANGES.md
+- rule: RMD-005
+  files:
+  - docs/architecture.md
+- rule: RMD-006
+  files:
+  - README.md
+- rule: RMD-008
+  files:
+  - MATRIXHUB.md
+- rule: RMD-009
+  files:
+  - docs/standards-report.md
+- rule: RMD-107
+  domain: ruslan-ai-coder-control
+  required_files:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  template_family: matrix-control
+- rule: RMD-108
+  domain: ruslan-ai-coder-control
+  required_files:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  template_family: matrix-control
+- rule: RMD-109
+  domain: ruslan-ai-coder-control
+  required_files:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  template_family: matrix-control
+- rule: RMD-110
+  domain: ruslan-ai-coder-control
+  required_files:
+  - matrix-control/prompt-templates/claude-code.md
+  template_family: matrix-control
+- rule: RMD-111
+  domain: ruslan-ai-coder-control
+  required_files:
+  - matrix-control/prompt-templates/codex-chatgpt.md
+  template_family: matrix-control
+- rule: RMD-112
+  domain: ruslan-ai-coder-control
+  required_files:
+  - matrix-control/prompt-templates/ibm-bob.md
+  template_family: matrix-control
+- rule: RMD-113
+  domain: ruslan-ai-coder-control
+  required_files:
+  - matrix-control/prompt-templates/gitpilot.md
+  template_family: matrix-control
+- rule: RMD-114
+  domain: ruslan-ai-coder-control
+  required_files:
+  - matrix-control/prompt-templates/generic-ai-coder.md
+  template_family: matrix-control
+- rule: RMD-115
+  domain: ruslan-ai-coder-control
+  required_files:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  template_family: matrix-control
+- rule: RMD-116
+  domain: ruslan-ai-coder-control
+  required_files:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  template_family: matrix-control
+- rule: RMD-117
+  domain: ruslan-ai-coder-control
+  required_files:
+  - MATRIX_TASKS.md
+  template_family: matrix-control
+- rule: RMD-118
+  domain: ruslan-ai-coder-control
+  required_files:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  template_family: matrix-control
+- rule: RMD-119
+  domain: ruslan-ai-coder-control
+  required_files:
+  - MATRIX_VALIDATION.md
+  template_family: matrix-control
+- rule: RMD-120
+  domain: ruslan-ai-coder-control
+  required_files:
+  - matrix-control/prompt-templates/repair-prompt.md
+  template_family: matrix-control

@@ -1,0 +1,8 @@
+schema_version: '1.0'
+blueprint_id: broken
+name: Broken Blueprint
+project_type: fullstack-ai-app
+goal: This fixture is intentionally invalid.
+required_files:
+- README.md
+forbidden: []

@@ -1,0 +1,24 @@
+schema_version: '1.0'
+lock_id: example-starter-standards-lock
+generated_at: '2026-06-12T00:00:00Z'
+definitions_pack:
+  name: matrix-definitions
+  version: 2026.06.0
+  checksum: placeholder
+profile: starter
+rules:
+- RMD-001
+- RMD-002
+- RMD-006
+- RMD-009
+- RMD-101
+- RMD-102
+- PY-001
+- PY-011
+immutable_files:
+- MATRIX_BLUEPRINT.yaml
+- MATRIX_STANDARDS.lock
+- MATRIX_TASKS.md
+verification:
+  signature_required: false
+  checksums_required: true

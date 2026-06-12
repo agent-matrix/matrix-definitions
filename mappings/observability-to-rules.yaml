@@ -1,0 +1,12 @@
+schema_version: '1.0'
+mappings:
+- source: matrix curated observability
+  rules:
+  - OBS-006
+  - OBS-004
+  - OBS-001
+  - OBS-002
+  - OBS-008
+  - OBS-005
+  - OBS-007
+  - OBS-003

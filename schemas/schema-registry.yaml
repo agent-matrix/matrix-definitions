@@ -1,0 +1,85 @@
+schema_version: '1.0'
+description: Registry used by tools/validate_schemas.py to validate every YAML/JSON file in the repository.
+default_schema: generic-policy.schema.json
+exclude:
+- .pytest_cache/**
+- releases/**/*.zip
+- releases/**/*.tar.gz
+- '**/checksums.txt'
+- '**/*.md'
+- '**/*.py'
+- '**/*.txt'
+- '**/*.jsonl'
+mappings:
+- glob: schemas/*.schema.json
+  schema: json-schema-meta
+- glob: schemas/schema-registry.yaml
+  schema: schema-registry.schema.json
+- glob: .github/workflows/*.yml
+  schema: github-workflow.schema.json
+- glob: .github/ISSUE_TEMPLATE/*.yml
+  schema: github-issue-template.schema.json
+- glob: industry/**/*.yaml
+  schema: standards-rule.schema.json
+- glob: ruslan/**/*.yaml
+  schema: rmd-rule.schema.json
+- glob: packs/current/manifest.json
+  schema: pack-manifest.schema.json
+- glob: packs/current/*.pack.yaml
+  schema: standards-pack.schema.json
+- glob: packs/history/**/*.pack.yaml
+  schema: standards-pack.schema.json
+- glob: examples/matrix-blueprint.yaml
+  schema: matrix-blueprint.schema.json
+- glob: examples/matrix-standards.lock.yaml
+  schema: matrix-standards-lock.schema.json
+- glob: examples/validation-report.json
+  schema: validation-report.schema.json
+- glob: examples/schemas/valid/matrix-blueprint.yaml
+  schema: matrix-blueprint.schema.json
+- glob: examples/schemas/valid/matrix-standards.lock.yaml
+  schema: matrix-standards-lock.schema.json
+- glob: examples/schemas/valid/validation-report.json
+  schema: validation-report.schema.json
+- glob: examples/schemas/valid/blueprint-candidate.yaml
+  schema: blueprint-candidate.schema.json
+- glob: examples/schemas/valid/blueprint-spec.yaml
+  schema: blueprint.schema.json
+- glob: examples/schemas/valid/standards-rule.yaml
+  schema: standards-rule.schema.json
+- glob: examples/schemas/valid/rmd-rule.yaml
+  schema: rmd-rule.schema.json
+- glob: examples/schemas/valid/exception.yaml
+  schema: exception.schema.json
+- glob: exceptions/examples/*.yaml
+  schema: exception.schema.json
+- glob: sources/trusted-sources.yaml
+  schema: source.schema.json
+- glob: sources/**/*.yaml
+  schema: generic-policy.schema.json
+- glob: mappings/*.yaml
+  schema: mapping.schema.json
+- glob: profiles/*.yaml
+  schema: profile.schema.json
+- glob: matrixhub/**/*.yaml
+  schema: matrixhub-template.schema.json
+- glob: updater/*.yaml
+  schema: updater-run.schema.json
+- glob: packs/current/reports/validation-report.json
+  schema: validation-report.schema.json
+- glob: packs/current/reports/*.json
+  schema: generic-policy.schema.json
+- glob: packs/current/signatures/*.json
+  schema: provenance.schema.json
+- glob: packs/history/**/signatures/*.json
+  schema: provenance.schema.json
+- glob: releases/current.json
+  schema: generic-policy.schema.json
+- glob: releases/**/*.json
+  schema: provenance.schema.json
+- glob: examples/control/MATRIX_BLUEPRINT.yaml
+  schema: matrix-blueprint.schema.json
+- glob: examples/control/MATRIX_STANDARDS.lock.yaml
+  schema: matrix-standards-lock.schema.json
+- glob: matrix-control/**/*.yaml
+  schema: generic-policy.schema.json

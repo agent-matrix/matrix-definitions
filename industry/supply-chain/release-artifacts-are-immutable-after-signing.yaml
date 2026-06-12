@@ -1,0 +1,41 @@
+schema_version: '1.0'
+id: SLSA-006
+title: Release artifacts are immutable after signing
+domain: supply-chain
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Signed release artifacts must not be modified after checksums, provenance, or attestations have been generated.
+source_refs:
+- openssf.slsa
+- github.artifact-attestations
+applies_to:
+  project_types:
+  - matrixhub-template
+  - ai-agent
+  - fullstack-ai-app
+  files: &id001
+  - releases/
+generator:
+  action: enforce_release_policy
+  template_requirements:
+  - immutable_signed_artifacts
+  files: *id001
+validation:
+  kind: release_artifact_immutability
+matrix_builder:
+  expose_in_report: true
+  report_section: supply-chain
+  failure_message: Signed release artifacts must not be modified after checksums, provenance, or attestations have been generated.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

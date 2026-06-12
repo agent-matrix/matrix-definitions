@@ -1,0 +1,44 @@
+schema_version: '1.0'
+blueprint_id: github-repo-intelligence-agent
+name: GitHub Repo Intelligence Agent
+project_type: fullstack-ai-app
+goal: Analyze public GitHub repositories and generate AI-powered improvement advice for developers.
+target_user: developers
+quality_level: standard
+allowed_stack:
+  frontend: Next.js
+  backend: FastAPI
+  database: SQLite
+  ai_layer: provider-agnostic
+required_pages:
+- Landing
+- Analyze Repository
+- Report
+- Methodology
+required_api_routes:
+- method: GET
+  path: /health
+  purpose: health check
+- method: POST
+  path: /api/analyze-repo
+  purpose: analyze repository
+- method: GET
+  path: /api/reports/{id}
+  purpose: read generated report
+required_files:
+- README.md
+- .env.example
+- MATRIX_BLUEPRINT.yaml
+- MATRIX_STANDARDS.lock
+- docs/standards-report.md
+forbidden:
+- no authentication in MVP
+- no payments
+- no random external services
+- no hardcoded secrets
+allowed_change_scopes:
+- task_id: TASK-001
+  description: Implement repository analysis endpoint
+  allowed_files:
+  - backend/app/api/analyze.py
+  - backend/tests/test_analyze.py

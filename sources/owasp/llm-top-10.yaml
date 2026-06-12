@@ -1,0 +1,11 @@
+schema_version: '1.0'
+id: owasp.llm.top10
+name: OWASP Top 10 for LLM Applications
+authority: OWASP
+tier: 2
+type: trusted-ecosystem-docs
+url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+refresh_policy: monthly
+domains:
+- ai-agents
+- application-security

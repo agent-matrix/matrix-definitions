@@ -1,0 +1,36 @@
+name: Standards update check
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: python -m pip install --upgrade pyyaml jsonschema pytest
+      - name: Check trusted source digests
+        run: python tools/check_standards_updates.py
+      - name: Create candidate update report
+        run: python tools/create_candidate_update.py
+      - name: Validate candidate artifacts
+        run: |
+          python tools/validate_schemas.py
+          python tools/validate_rules.py
+          python tools/build_pack.py
+          python tools/verify_pack.py
+      - name: Open candidate update PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: automation/standards-update-candidate
+          title: 'chore: candidate standards update'
+          body-path: updater/reports/candidate-update-pr.md
+          commit-message: 'chore: update standards candidate report'
+          labels: standards-update,needs-review

@@ -1,0 +1,32 @@
+schema_version: '1.0'
+name: GitHub Repo Intelligence Agent
+slug: github-repo-intelligence-agent
+pitch: Analyze repositories with a controlled AI agent.
+target_user: developers
+goal: Build a portfolio-ready developer tool.
+stack:
+  frontend: Next.js
+  backend: FastAPI
+  database: SQLite
+quality_level: standard
+frontend:
+  pages:
+  - Landing
+  - Analyze
+  - Report
+backend:
+  services:
+  - GitHubService
+  - ReportService
+database:
+  tables:
+  - reports
+api_routes:
+- method: POST
+  path: /api/analyze-repo
+ai_layer:
+  tools:
+  - github_api
+  - llm
+standards_profile:
+  pack: 2026.06.0

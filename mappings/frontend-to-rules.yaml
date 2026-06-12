@@ -1,0 +1,16 @@
+schema_version: '1.0'
+mappings:
+- source: nextjs.docs.app-router
+  rules:
+  - FE-001
+  - FE-005
+  - FE-002
+  - FE-007
+  - FE-003
+  - FE-006
+  - FE-008
+  - NEXT-004
+  - NEXT-001
+  - NEXT-003
+  - NEXT-002
+  - FE-004

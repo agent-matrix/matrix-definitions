@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: OBS-003
+title: Tracing hooks recommended for enterprise
+domain: observability
+severity: low
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Enterprise templates should include tracing guidance for service calls and agent workflows.
+source_refs:
+- nist.ssdf.sp800-218
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: tracing_guidance_present
+matrix_builder:
+  expose_in_report: true
+  report_section: observability
+  failure_message: Enterprise templates should include tracing guidance for service calls and agent workflows.
+agent_generator:
+  enforcement:
+    starter: 'off'
+    standard: 'off'
+    production: warn
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

@@ -1,0 +1,44 @@
+schema_version: '1.0'
+id: NEXT-004
+title: Loading and error states are generated
+domain: frontend
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Matrix Builder frontend templates must include predictable loading and error UI for every network-driven screen.
+source_refs:
+- nextjs.docs.app-router
+applies_to:
+  project_types:
+  - frontend-app
+  - fullstack-ai-app
+  files: &id001
+  - frontend/app/loading.tsx
+  - frontend/app/error.tsx
+generator:
+  action: render_file
+  required_files: &id002
+  - frontend/app/loading.tsx
+  - frontend/app/error.tsx
+  template_requirements:
+  - loading_error_states_required
+  files: *id001
+validation:
+  kind: file_required
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: frontend
+  failure_message: Matrix Builder frontend templates must include predictable loading and error UI for every network-driven screen.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

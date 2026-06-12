@@ -1,0 +1,20 @@
+schema_version: '1.0'
+mappings:
+- source: matrix curated agent safety
+  rules:
+  - AGENT-006
+  - AGENT-009
+  - AGENT-015
+  - AGENT-016
+  - AGENT-007
+  - AGENT-014
+  - AGENT-005
+  - AGENT-004
+  - AGENT-013
+  - AGENT-010
+  - AGENT-003
+  - AGENT-011
+  - AGENT-001
+  - AGENT-008
+  - AGENT-012
+  - AGENT-002

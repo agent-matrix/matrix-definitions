@@ -1,0 +1,36 @@
+schema_version: '1.0'
+id: GHA-007
+title: Self-hosted runners require explicit risk documentation
+domain: github-actions
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Workflows that use self-hosted runners must document isolation, secret exposure risk, runner trust level, and approval
+  requirements.
+source_refs:
+- github.actions.secure-use
+applies_to:
+  project_types:
+  - all
+  files:
+  - .github/workflows/*.yml
+generator:
+  action: validate_and_report
+validation:
+  kind: self_hosted_runner_risk_documented
+matrix_builder:
+  expose_in_report: true
+  report_section: github-actions
+  failure_message: Self-hosted runner usage requires risk documentation and approval.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

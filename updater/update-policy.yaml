@@ -1,0 +1,16 @@
+schema_version: '1.0'
+status: stable
+policy:
+  name: Standards update policy
+  automatic_activation: false
+  candidate_updates_allowed: true
+  human_review_required: true
+  critical_rule_reviewers:
+  - Ruslan Magana
+  canary_required: true
+  quarantine_on_failure: true
+  source_tier_rules:
+    tier_1: can propose rule changes automatically but cannot activate
+    tier_2: can propose findings only
+    tier_3: informational only
+

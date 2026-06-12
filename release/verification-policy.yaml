@@ -1,0 +1,22 @@
+schema_version: '1.0'
+policy:
+  name: Matrix Definitions Verification Policy
+  checks:
+  - manifest_json_parseable
+  - manifest_version_matches_VERSION
+  - all_pack_files_exist
+  - checksums_match
+  - release_archives_exist
+  - sbom_exists
+  - provenance_exists
+  - signature_metadata_exists
+  strict_checks:
+  - cosign_bundle_not_placeholder
+  - github_attestation_not_placeholder
+  - provenance_subjects_match_release_artifacts
+  agent_generator_minimum:
+  - manifest_json_parseable
+  - checksums_match
+  - combined_pack_exists
+  - version_compatible
+

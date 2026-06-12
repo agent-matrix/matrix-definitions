@@ -1,0 +1,16 @@
+schema_version: '1.0'
+mappings:
+- source: docker.build.best-practices
+  rules:
+  - DOCKER-011
+  - DOCKER-005
+  - DOCKER-007
+  - DOCKER-009
+  - DOCKER-001
+  - DOCKER-002
+  - DOCKER-012
+  - DOCKER-008
+  - DOCKER-003
+  - DOCKER-004
+  - DOCKER-010
+  - DOCKER-006

@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: owasp.agentic.top10
+name: OWASP Agentic AI Top 10
+authority: OWASP
+tier: 2
+type: trusted-ecosystem-docs
+url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+refresh_policy: monthly
+domains:
+- ai-agents

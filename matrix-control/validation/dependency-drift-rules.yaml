@@ -1,0 +1,16 @@
+schema_version: '1.0'
+policy:
+  name: Dependency Drift Rules
+  fail_on:
+  - new_package_without_approval
+  - unpinned_production_dependency
+  - known_critical_vulnerability
+  - package_from_unapproved_registry
+  inputs:
+  - package manifests
+  - dependency approval records
+rules:
+- RMD-105
+- RMD-116
+- SUPPLY-002
+- SUPPLY-004

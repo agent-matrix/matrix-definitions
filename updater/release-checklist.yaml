@@ -1,0 +1,17 @@
+schema_version: '1.0'
+status: stable
+steps:
+- validate_schemas
+- validate_rules
+- validate_contracts
+- validate_exceptions
+- build_pack
+- generate_sbom
+- generate_provenance
+- create_release_bundle
+- sign_with_cosign
+- create_github_attestations
+- verify_release
+- publish_release
+- update_current_pointer
+

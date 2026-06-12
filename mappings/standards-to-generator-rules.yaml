@@ -1,0 +1,1119 @@
+schema_version: '1.0'
+mappings:
+- rule: AGENT-006
+  domain: ai-agents
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: AGENT-009
+  domain: ai-agents
+  generator_action: render_file
+  template_requirements:
+  - tool_allowlist_required
+  required_files:
+  - agent/permissions.yaml
+  effect: create_or_validate_required_artifacts
+- rule: AGENT-015
+  domain: ai-agents
+  generator_action: render_file
+  template_requirements:
+  - code_execution_sandbox_required
+  required_files:
+  - docs/tool-sandbox.md
+  effect: create_or_validate_required_artifacts
+- rule: AGENT-016
+  domain: ai-agents
+  generator_action: render_file
+  template_requirements:
+  - destructive_action_approval_required
+  required_files:
+  - agent/approval-policy.yaml
+  effect: create_or_validate_required_artifacts
+- rule: AGENT-007
+  domain: ai-agents
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: AGENT-014
+  domain: ai-agents
+  generator_action: render_file
+  template_requirements:
+  - golden_evals_required
+  required_files:
+  - evals/golden_cases.json
+  effect: create_or_validate_required_artifacts
+- rule: AGENT-005
+  domain: ai-agents
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: AGENT-004
+  domain: ai-agents
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: AGENT-013
+  domain: ai-agents
+  generator_action: render_file
+  template_requirements:
+  - memory_retention_policy_required
+  required_files:
+  - docs/memory-policy.md
+  effect: create_or_validate_required_artifacts
+- rule: AGENT-010
+  domain: ai-agents
+  generator_action: render_file
+  template_requirements:
+  - network_egress_policy_required
+  required_files:
+  - agent/network-policy.yaml
+  effect: create_or_validate_required_artifacts
+- rule: AGENT-003
+  domain: ai-agents
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: AGENT-011
+  domain: ai-agents
+  generator_action: render_file
+  template_requirements:
+  - prompt_boundary_doc_required
+  required_files:
+  - docs/prompt-boundaries.md
+  effect: create_or_validate_required_artifacts
+- rule: AGENT-001
+  domain: ai-agents
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: AGENT-008
+  domain: ai-agents
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: AGENT-012
+  domain: ai-agents
+  generator_action: render_file
+  template_requirements:
+  - retrieval_provenance_required
+  required_files:
+  - schemas/source-provenance.schema.json
+  effect: create_or_validate_required_artifacts
+- rule: AGENT-002
+  domain: ai-agents
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: ASVS-006
+  domain: application-security
+  generator_action: enforce_schema_policy
+  template_requirements:
+  - reject_unknown_request_fields
+  required_files:
+  - backend/app/schemas/
+  effect: create_or_validate_required_artifacts
+- rule: ASVS-002
+  domain: application-security
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: ASVS-005
+  domain: application-security
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: ASVS-007
+  domain: application-security
+  generator_action: render_doc_section
+  template_requirements:
+  - auth_explicit_policy
+  required_files:
+  - docs/security.md
+  effect: create_or_validate_required_artifacts
+- rule: ASVS-004
+  domain: application-security
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: ASVS-008
+  domain: application-security
+  generator_action: render_doc_section
+  template_requirements:
+  - file_upload_policy_required
+  required_files:
+  - docs/security.md
+  effect: create_or_validate_required_artifacts
+- rule: ASVS-001
+  domain: application-security
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: ASVS-000
+  domain: application-security
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: OWASP-001
+  domain: application-security
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: ASVS-003
+  domain: application-security
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files:
+  - .env.example
+  effect: create_or_validate_required_artifacts
+- rule: DOCKER-011
+  domain: docker
+  generator_action: reject_violation
+  template_requirements:
+  - docker_no_secret_build_args
+  required_files:
+  - Dockerfile
+  effect: create_or_validate_required_artifacts
+- rule: DOCKER-005
+  domain: docker
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: DOCKER-007
+  domain: docker
+  generator_action: validate_only
+  template_requirements:
+  - pinned_base_image_required
+  required_files:
+  - Dockerfile
+  effect: create_or_validate_required_artifacts
+- rule: DOCKER-009
+  domain: docker
+  generator_action: render_healthcheck
+  template_requirements:
+  - container_healthcheck_required
+  required_files:
+  - Dockerfile
+  effect: create_or_validate_required_artifacts
+- rule: DOCKER-001
+  domain: docker
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files:
+  - Dockerfile
+  effect: create_or_validate_required_artifacts
+- rule: DOCKER-002
+  domain: docker
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files:
+  - .dockerignore
+  effect: create_or_validate_required_artifacts
+- rule: DOCKER-012
+  domain: docker
+  generator_action: render_labels
+  template_requirements:
+  - oci_labels_required
+  required_files:
+  - Dockerfile
+  effect: create_or_validate_required_artifacts
+- rule: DOCKER-008
+  domain: docker
+  generator_action: reject_violation
+  template_requirements:
+  - no_latest_image_tags
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: DOCKER-003
+  domain: docker
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: DOCKER-004
+  domain: docker
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: DOCKER-010
+  domain: docker
+  generator_action: validate_only
+  template_requirements:
+  - no_package_cache_in_runtime
+  required_files:
+  - Dockerfile
+  effect: create_or_validate_required_artifacts
+- rule: DOCKER-006
+  domain: docker
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FASTAPI-012
+  domain: fastapi
+  generator_action: render_file
+  template_requirements:
+  - request_id_middleware_required
+  required_files:
+  - backend/app/middleware/request_id.py
+  effect: create_or_validate_required_artifacts
+- rule: FASTAPI-001
+  domain: fastapi
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FASTAPI-009
+  domain: fastapi
+  generator_action: render_file
+  template_requirements:
+  - central_error_handler_required
+  required_files:
+  - backend/app/core/errors.py
+  effect: create_or_validate_required_artifacts
+- rule: FASTAPI-010
+  domain: fastapi
+  generator_action: enforce_config
+  template_requirements:
+  - cors_explicit_origins
+  required_files:
+  - backend/app/core/config.py
+  effect: create_or_validate_required_artifacts
+- rule: FASTAPI-006
+  domain: fastapi
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FASTAPI-005
+  domain: fastapi
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FASTAPI-007
+  domain: fastapi
+  generator_action: render_tree
+  template_requirements:
+  - fastapi_router_layout
+  required_files:
+  - backend/app/api/
+  effect: create_or_validate_required_artifacts
+- rule: FASTAPI-003
+  domain: fastapi
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FASTAPI-014
+  domain: fastapi
+  generator_action: enforce_config
+  template_requirements:
+  - openapi_metadata_required
+  required_files:
+  - backend/app/main.py
+  effect: create_or_validate_required_artifacts
+- rule: FASTAPI-004
+  domain: fastapi
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FASTAPI-013
+  domain: fastapi
+  generator_action: render_doc_section
+  template_requirements:
+  - rate_limit_policy_required
+  required_files:
+  - docs/security.md
+  effect: create_or_validate_required_artifacts
+- rule: FASTAPI-008
+  domain: fastapi
+  generator_action: render_tree
+  template_requirements:
+  - pydantic_schemas_required
+  required_files:
+  - backend/app/schemas/
+  effect: create_or_validate_required_artifacts
+- rule: FASTAPI-002
+  domain: fastapi
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FASTAPI-011
+  domain: fastapi
+  generator_action: render_file
+  template_requirements:
+  - typed_settings_required
+  required_files:
+  - backend/app/core/config.py
+  - .env.example
+  effect: create_or_validate_required_artifacts
+- rule: FE-001
+  domain: frontend
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FE-005
+  domain: frontend
+  generator_action: validate_only
+  template_requirements:
+  - accessible_names_required
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FE-002
+  domain: frontend
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FE-007
+  domain: frontend
+  generator_action: validate_only
+  template_requirements:
+  - safe_external_links_required
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FE-003
+  domain: frontend
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FE-006
+  domain: frontend
+  generator_action: render_form_policy
+  template_requirements:
+  - form_schema_validation_required
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: FE-008
+  domain: frontend
+  generator_action: render_config
+  template_requirements:
+  - frontend_security_headers_required
+  required_files:
+  - docs/security.md
+  effect: create_or_validate_required_artifacts
+- rule: NEXT-004
+  domain: frontend
+  generator_action: render_file
+  template_requirements:
+  - loading_error_states_required
+  required_files:
+  - frontend/app/loading.tsx
+  - frontend/app/error.tsx
+  effect: create_or_validate_required_artifacts
+- rule: NEXT-001
+  domain: frontend
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: NEXT-003
+  domain: frontend
+  generator_action: render_file
+  template_requirements:
+  - next_env_boundary_required
+  required_files:
+  - frontend/.env.example
+  effect: create_or_validate_required_artifacts
+- rule: NEXT-002
+  domain: frontend
+  generator_action: render_tree
+  template_requirements:
+  - next_server_client_boundary
+  required_files:
+  - frontend/app/
+  effect: create_or_validate_required_artifacts
+- rule: FE-004
+  domain: frontend
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-012
+  domain: github-actions
+  generator_action: render_ci_step
+  template_requirements:
+  - tests_before_packaging
+  required_files:
+  - .github/workflows/ci.yml
+  - tests/
+  effect: create_or_validate_required_artifacts
+- rule: GHA-003
+  domain: github-actions
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files:
+  - CODEOWNERS
+  effect: create_or_validate_required_artifacts
+- rule: GHA-011
+  domain: github-actions
+  generator_action: render_release_step
+  template_requirements:
+  - artifact_verification_required
+  required_files:
+  - .github/workflows/release.yml
+  effect: create_or_validate_required_artifacts
+- rule: GHA-001
+  domain: github-actions
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-004
+  domain: github-actions
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-002
+  domain: github-actions
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-009
+  domain: github-actions
+  generator_action: enforce_workflow_policy
+  template_requirements:
+  - separate_pr_and_release_permissions
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-006
+  domain: github-actions
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-005
+  domain: github-actions
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-007
+  domain: github-actions
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-010
+  domain: github-actions
+  generator_action: reject_violation
+  template_requirements:
+  - untrusted_context_shell_injection_check
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: GHA-008
+  domain: github-actions
+  generator_action: render_ci_step
+  template_requirements:
+  - workflow_lint_required
+  required_files:
+  - .github/workflows/ci.yml
+  effect: create_or_validate_required_artifacts
+- rule: OBS-006
+  domain: observability
+  generator_action: render_file
+  template_requirements:
+  - audit_event_schema_required
+  required_files:
+  - schemas/audit-event.schema.json
+  effect: create_or_validate_required_artifacts
+- rule: OBS-004
+  domain: observability
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: OBS-001
+  domain: observability
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: OBS-002
+  domain: observability
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: OBS-008
+  domain: observability
+  generator_action: render_doc_section
+  template_requirements:
+  - readiness_liveness_required
+  required_files:
+  - docs/operations.md
+  effect: create_or_validate_required_artifacts
+- rule: OBS-005
+  domain: observability
+  generator_action: render_doc_section
+  template_requirements:
+  - correlation_id_required
+  required_files:
+  - docs/observability.md
+  effect: create_or_validate_required_artifacts
+- rule: OBS-007
+  domain: observability
+  generator_action: render_doc_section
+  template_requirements:
+  - sensitive_log_redaction_required
+  required_files:
+  - docs/security.md
+  effect: create_or_validate_required_artifacts
+- rule: OBS-003
+  domain: observability
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: PY-014
+  domain: python
+  generator_action: render_file
+  template_requirements:
+  - dependency_lock_policy_documented
+  required_files:
+  - docs/dependency-policy.md
+  effect: create_or_validate_required_artifacts
+- rule: PY-011
+  domain: python
+  generator_action: render_file
+  template_requirements:
+  - env_example_required
+  - no_real_secret_values
+  required_files:
+  - .env.example
+  effect: create_or_validate_required_artifacts
+- rule: PY-003
+  domain: python
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: PY-016
+  domain: python
+  generator_action: reject_violation
+  template_requirements:
+  - secret_scan_required
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: PY-013
+  domain: python
+  generator_action: render_config
+  template_requirements:
+  - package_metadata_required
+  required_files:
+  - pyproject.toml
+  effect: create_or_validate_required_artifacts
+- rule: PY-002
+  domain: python
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: PY-006
+  domain: python
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: PY-001
+  domain: python
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files:
+  - pyproject.toml
+  effect: create_or_validate_required_artifacts
+- rule: PY-010
+  domain: python
+  generator_action: render_tests
+  template_requirements:
+  - pytest_config_required
+  required_files:
+  - pyproject.toml
+  - tests/
+  effect: create_or_validate_required_artifacts
+- rule: PY-007
+  domain: python
+  generator_action: render_file
+  template_requirements:
+  - pyproject_build_system_required
+  required_files:
+  - pyproject.toml
+  effect: create_or_validate_required_artifacts
+- rule: PY-008
+  domain: python
+  generator_action: render_config
+  template_requirements:
+  - ruff_config_required
+  required_files:
+  - pyproject.toml
+  effect: create_or_validate_required_artifacts
+- rule: PY-012
+  domain: python
+  generator_action: render_config
+  template_requirements:
+  - dependency_groups_required
+  required_files:
+  - pyproject.toml
+  effect: create_or_validate_required_artifacts
+- rule: PY-015
+  domain: python
+  generator_action: render_tree
+  template_requirements:
+  - src_layout_required
+  required_files:
+  - src/
+  effect: create_or_validate_required_artifacts
+- rule: PY-005
+  domain: python
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: PY-009
+  domain: python
+  generator_action: render_config
+  template_requirements:
+  - typing_config_required
+  required_files:
+  - pyproject.toml
+  effect: create_or_validate_required_artifacts
+- rule: PY-004
+  domain: python
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SSDF-003
+  domain: secure-development
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SSDF-001
+  domain: secure-development
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files:
+  - docs/security.md
+  effect: create_or_validate_required_artifacts
+- rule: SSDF-004
+  domain: secure-development
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SSDF-005
+  domain: secure-development
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SSDF-002
+  domain: secure-development
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files:
+  - SECURITY.md
+  effect: create_or_validate_required_artifacts
+- rule: SLSA-004
+  domain: supply-chain
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SUPPLY-001
+  domain: supply-chain
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files:
+  - .github/dependabot.yml
+  effect: create_or_validate_required_artifacts
+- rule: SUPPLY-003
+  domain: supply-chain
+  generator_action: render_file
+  template_requirements:
+  - dependency_pinning_policy_required
+  required_files:
+  - docs/dependency-policy.md
+  effect: create_or_validate_required_artifacts
+- rule: SUPPLY-005
+  domain: supply-chain
+  generator_action: render_file
+  template_requirements:
+  - license_policy_required
+  required_files:
+  - LICENSE
+  - docs/license-policy.md
+  effect: create_or_validate_required_artifacts
+- rule: SLSA-002
+  domain: supply-chain
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SLSA-006
+  domain: supply-chain
+  generator_action: enforce_release_policy
+  template_requirements:
+  - immutable_signed_artifacts
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SUPPLY-006
+  domain: supply-chain
+  generator_action: render_release_step
+  template_requirements:
+  - sbom_generation_required
+  required_files:
+  - sbom.cdx.json
+  effect: create_or_validate_required_artifacts
+- rule: SLSA-003
+  domain: supply-chain
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SUPPLY-002
+  domain: supply-chain
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SLSA-005
+  domain: supply-chain
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SLSA-001
+  domain: supply-chain
+  generator_action: validate_and_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: SUPPLY-004
+  domain: supply-chain
+  generator_action: render_ci_step
+  template_requirements:
+  - vulnerability_scan_required
+  required_files:
+  - .github/workflows/ci.yml
+  effect: create_or_validate_required_artifacts
+- rule: RMD-201
+  domain: ruslan-agent-safety
+  generator_action: create_tool_permissions
+  template_requirements: []
+  required_files:
+  - agent/permissions.yaml
+  effect: create_or_validate_required_artifacts
+- rule: RMD-202
+  domain: ruslan-agent-safety
+  generator_action: create_secret_boundary_docs
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-203
+  domain: ruslan-agent-safety
+  generator_action: create_untrusted_context_guidance
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-204
+  domain: ruslan-agent-safety
+  generator_action: create_output_schema
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-205
+  domain: ruslan-agent-safety
+  generator_action: create_audit_guidance
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-206
+  domain: ruslan-agent-safety
+  generator_action: create_human_approval_gate
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-101
+  domain: ruslan-ai-coder-control
+  generator_action: generate_task_scoped_prompt
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-102
+  domain: ruslan-ai-coder-control
+  generator_action: generate_task_prompt_pack
+  template_requirements: []
+  required_files:
+  - MATRIX_TASKS.md
+  - MATRIX_ACCEPTANCE_CRITERIA.md
+  - MATRIX_VALIDATION.md
+  effect: create_or_validate_required_artifacts
+- rule: RMD-103
+  domain: ruslan-ai-coder-control
+  generator_action: hash_control_files
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-104
+  domain: ruslan-ai-coder-control
+  generator_action: generate_repair_prompt_on_failure
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-105
+  domain: ruslan-ai-coder-control
+  generator_action: create_dependency_policy
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-106
+  domain: ruslan-ai-coder-control
+  generator_action: enable_diff_validation
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-901
+  domain: ruslan-branding
+  generator_action: add_metadata_attribution
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-902
+  domain: ruslan-branding
+  generator_action: add_generator_metadata
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-903
+  domain: ruslan-branding
+  generator_action: include_definition_provenance
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-001
+  domain: ruslan-core
+  generator_action: create_required_file
+  template_requirements: []
+  required_files:
+  - MATRIX_BLUEPRINT.yaml
+  effect: create_or_validate_required_artifacts
+- rule: RMD-002
+  domain: ruslan-core
+  generator_action: create_required_file
+  template_requirements: []
+  required_files:
+  - MATRIX_STANDARDS.lock
+  effect: create_or_validate_required_artifacts
+- rule: RMD-003
+  domain: ruslan-core
+  generator_action: create_allowed_changes_policy
+  template_requirements: []
+  required_files:
+  - MATRIX_ALLOWED_CHANGES.md
+  effect: create_or_validate_required_artifacts
+- rule: RMD-004
+  domain: ruslan-core
+  generator_action: lock_architecture
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-005
+  domain: ruslan-core
+  generator_action: create_required_file
+  template_requirements: []
+  required_files:
+  - docs/architecture.md
+  effect: create_or_validate_required_artifacts
+- rule: RMD-006
+  domain: ruslan-core
+  generator_action: create_required_file
+  template_requirements: []
+  required_files:
+  - README.md
+  effect: create_or_validate_required_artifacts
+- rule: RMD-007
+  domain: ruslan-core
+  generator_action: create_local_setup
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-008
+  domain: ruslan-core
+  generator_action: create_required_file
+  template_requirements: []
+  required_files:
+  - MATRIXHUB.md
+  effect: create_or_validate_required_artifacts
+- rule: RMD-009
+  domain: ruslan-core
+  generator_action: create_required_file
+  template_requirements: []
+  required_files:
+  - docs/standards-report.md
+  effect: create_or_validate_required_artifacts
+- rule: RMD-010
+  domain: ruslan-core
+  generator_action: generate_repair_prompt_on_failure
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-301
+  domain: ruslan-matrixhub
+  generator_action: create_publication_gate
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-302
+  domain: ruslan-matrixhub
+  generator_action: create_matrixhub_metadata
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-303
+  domain: ruslan-matrixhub
+  generator_action: create_remix_docs
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-304
+  domain: ruslan-matrixhub
+  generator_action: expose_standards_report
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-305
+  domain: ruslan-matrixhub
+  generator_action: require_release_metadata
+  template_requirements: []
+  required_files: []
+  effect: validate_or_reject_violation
+- rule: RMD-107
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files: []
+  effect: control_ai_coder_scope
+- rule: RMD-108
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files: []
+  effect: control_ai_coder_scope
+- rule: RMD-109
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files: []
+  effect: control_ai_coder_scope
+- rule: RMD-110
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files:
+  - matrix-control/prompt-templates/claude-code.md
+  effect: control_ai_coder_scope
+- rule: RMD-111
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files:
+  - matrix-control/prompt-templates/codex-chatgpt.md
+  effect: control_ai_coder_scope
+- rule: RMD-112
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files:
+  - matrix-control/prompt-templates/ibm-bob.md
+  effect: control_ai_coder_scope
+- rule: RMD-113
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files:
+  - matrix-control/prompt-templates/gitpilot.md
+  effect: control_ai_coder_scope
+- rule: RMD-114
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files:
+  - matrix-control/prompt-templates/generic-ai-coder.md
+  effect: control_ai_coder_scope
+- rule: RMD-115
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files: []
+  effect: control_ai_coder_scope
+- rule: RMD-116
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files: []
+  effect: control_ai_coder_scope
+- rule: RMD-117
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files:
+  - MATRIX_TASKS.md
+  effect: control_ai_coder_scope
+- rule: RMD-118
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files: []
+  effect: control_ai_coder_scope
+- rule: RMD-119
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files:
+  - MATRIX_VALIDATION.md
+  effect: control_ai_coder_scope
+- rule: RMD-120
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  template_requirements:
+  - matrix_control_layer
+  required_files:
+  - matrix-control/prompt-templates/repair-prompt.md
+  effect: control_ai_coder_scope

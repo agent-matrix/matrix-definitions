@@ -1,0 +1,9 @@
+schema_version: '1.0'
+mappings:
+- source: owasp.asvs
+  rules:
+  - ASVS-001
+  - ASVS-002
+  - ASVS-003
+  - ASVS-004
+  - ASVS-005

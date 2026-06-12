@@ -1,0 +1,16 @@
+schema_version: '1.0'
+mappings:
+- source: openssf.slsa
+  rules:
+  - SLSA-004
+  - SUPPLY-001
+  - SUPPLY-003
+  - SUPPLY-005
+  - SLSA-002
+  - SLSA-006
+  - SUPPLY-006
+  - SLSA-003
+  - SUPPLY-002
+  - SLSA-005
+  - SLSA-001
+  - SUPPLY-004

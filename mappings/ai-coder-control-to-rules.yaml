@@ -1,0 +1,94 @@
+schema_version: '1.0'
+mappings:
+- rule: RMD-107
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files: []
+  validation_check: adapter_contract_preserved
+  effect: control_ai_coder_scope
+- rule: RMD-108
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files: []
+  validation_check: patch_scoped_output_required
+  effect: control_ai_coder_scope
+- rule: RMD-109
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files: []
+  validation_check: generic_adapter_used_for_unknown_coder
+  effect: control_ai_coder_scope
+- rule: RMD-110
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files:
+  - matrix-control/prompt-templates/claude-code.md
+  validation_check: claude_code_prompt_policy_check
+  effect: control_ai_coder_scope
+- rule: RMD-111
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files:
+  - matrix-control/prompt-templates/codex-chatgpt.md
+  validation_check: codex_chatgpt_prompt_policy_check
+  effect: control_ai_coder_scope
+- rule: RMD-112
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files:
+  - matrix-control/prompt-templates/ibm-bob.md
+  validation_check: ibm_bob_prompt_policy_check
+  effect: control_ai_coder_scope
+- rule: RMD-113
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files:
+  - matrix-control/prompt-templates/gitpilot.md
+  validation_check: gitpilot_prompt_policy_check
+  effect: control_ai_coder_scope
+- rule: RMD-114
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files:
+  - matrix-control/prompt-templates/generic-ai-coder.md
+  validation_check: generic_ai_coder_prompt_policy_check
+  effect: control_ai_coder_scope
+- rule: RMD-115
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files: []
+  validation_check: architecture_drift_detection_required
+  effect: control_ai_coder_scope
+- rule: RMD-116
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files: []
+  validation_check: dependency_approval_record_required
+  effect: control_ai_coder_scope
+- rule: RMD-117
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files:
+  - MATRIX_TASKS.md
+  validation_check: task_sequence_check
+  effect: control_ai_coder_scope
+- rule: RMD-118
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files: []
+  validation_check: prompt_stop_conditions_present
+  effect: control_ai_coder_scope
+- rule: RMD-119
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files:
+  - MATRIX_VALIDATION.md
+  validation_check: validation_commands_required
+  effect: control_ai_coder_scope
+- rule: RMD-120
+  domain: ruslan-ai-coder-control
+  generator_action: apply_matrix_control_policy
+  required_files:
+  - matrix-control/prompt-templates/repair-prompt.md
+  validation_check: bounded_repair_prompt_required
+  effect: control_ai_coder_scope

@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "checked_at": "2026-06-12T00:00:00Z",
+  "findings": [
+    {
+      "id": "nist.ssdf.sp800-218",
+      "name": "NIST SP 800-218 Secure Software Development Framework",
+      "tier": 1,
+      "digest": "1351e30bf2e57685ea922d4eea7e9fb173d4fa416a6b8412d94186f93fb61b03",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "owasp.asvs",
+      "name": "OWASP Application Security Verification Standard",
+      "tier": 1,
+      "digest": "06a79780dd6db2828920294ded06a68d61aa1bee87c30e31322f2e2efddb7a2d",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "openssf.slsa",
+      "name": "Supply-chain Levels for Software Artifacts",
+      "tier": 1,
+      "digest": "15a230f463c113bf916147710d8f1113c4baefd32ef7761543908b0c9bda3fcc",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "github.actions.secure-use",
+      "name": "GitHub Actions Secure Use Reference",
+      "tier": 1,
+      "digest": "a52650bab0fac2d953d7483ca40a17d889fc2e0123485f141367a812182730a5",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "github.artifact-attestations",
+      "name": "GitHub Artifact Attestations",
+      "tier": 1,
+      "digest": "d9f34e13063fcfc231620ceecefdb85c41ca7b5430825ada30ccff122952724a",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "docker.build.best-practices",
+      "name": "Docker Build Best Practices",
+      "tier": 1,
+      "digest": "eaf77b582f78e09dc27e8b204eb94863937341984365a0a86646653aa99058d9",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "python.packaging.pyproject",
+      "name": "Python Packaging User Guide - pyproject.toml",
+      "tier": 1,
+      "digest": "f548754a9e53744ec249e99dc430c3c0e7eacf4d618f7a224b942753b43b4793",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "fastapi.docs.security",
+      "name": "FastAPI Security Documentation",
+      "tier": 1,
+      "digest": "8ad1d2a4ff88bffa6d44249e584cf701718d564a72739f7f3f5b222eba5a8cbc",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "matrix.agent-safety.prompt-injection",
+      "name": "Matrix Agent Safety Prompt Injection Rules",
+      "tier": 1,
+      "digest": "07a11bd6c470ded645937df0bc27bc48cd02b8e00d8216c2d296cfed930e4de8",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "matrix.agent-safety.tool-permissions",
+      "name": "Matrix Agent Safety Tool Permission Rules",
+      "tier": 1,
+      "digest": "0d8ea1b7b80fcf9cedccb7633e97b1b97cc4b7f7f252cae89f737f4291191a14",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "matrix.agent-safety.memory-safety",
+      "name": "Matrix Agent Safety Memory Boundary Rules",
+      "tier": 1,
+      "digest": "399a617ff6bcf9e57e73c57754e4d28c27f54644cde3f68bb99bbaa2e33a8293",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "matrix.agent-safety.human-approval",
+      "name": "Matrix Agent Safety Human Approval Rules",
+      "tier": 1,
+      "digest": "e1be383f34f7bc2da724e9b5ea8a55ed19fd46fc173b6e40a4f58f4cc66830c6",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "owasp.top10",
+      "name": "OWASP Top 10",
+      "tier": 1,
+      "digest": "73cda18f32c21cbce968b6e1670343ef4b8bd49236c6899ecec33df32570d0b9",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "nextjs.docs.app-router",
+      "name": "Next.js App Router Documentation",
+      "tier": 1,
+      "digest": "72886c246f9f045076d3b4f3b4445dfbeff1a289e5880d645706d5579de87a64",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "github.dependabot",
+      "name": "GitHub Dependabot Documentation",
+      "tier": 1,
+      "digest": "af6b4fc0cc62759a189316d4b52c9f476ab21ae052a3f38c83dd2885d333041f",
+      "status": "checked_metadata_only"
+    },
+    {
+      "id": "openssf.scorecard",
+      "name": "OpenSSF Scorecard",
+      "tier": 1,
+      "digest": "0a2ad18d3cbc8da9e3e9f3ebee6ae9dfe9d9dc44c2cf861373e0056f33fecf42",
+      "status": "checked_metadata_only"
+    }
+  ]
+}

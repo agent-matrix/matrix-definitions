@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: AGENT-001
+title: Prompt safety boundaries required
+domain: ai-agents
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Agent templates must separate instructions from untrusted context and include prompt-injection guidance.
+source_refs:
+- matrix.agent-safety.prompt-injection
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: prompt_safety_boundary_required
+matrix_builder:
+  expose_in_report: true
+  report_section: ai-agents
+  failure_message: Agent templates must separate instructions from untrusted context and include prompt-injection guidance.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

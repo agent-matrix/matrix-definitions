@@ -1,0 +1,38 @@
+schema_version: '1.0'
+policy:
+  name: Matrix AI Coder Control Policy
+  purpose: Keep Claude Code, Codex/ChatGPT, Cursor, IBM Bob, Gitpilot, and generic AI coders inside a locked blueprint
+    contract.
+  principle: Matrix Builder is the architect; AI coders are implementation workers.
+  required_inputs:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  - MATRIX_TASKS.md
+  - MATRIX_ALLOWED_CHANGES.md
+  - MATRIX_ACCEPTANCE_CRITERIA.md
+  - MATRIX_VALIDATION.md
+  required_adapter_output:
+  - task_prompt
+  - allowed_files
+  - forbidden_changes
+  - acceptance_criteria
+  - validation_commands
+  - expected_output_format
+  approval_states:
+  - approved
+  - needs_repair
+  - rejected
+rules:
+- RMD-101
+- RMD-102
+- RMD-103
+- RMD-104
+- RMD-105
+- RMD-106
+- RMD-107
+- RMD-108
+- RMD-109
+- RMD-115
+- RMD-116
+- RMD-119
+- RMD-120

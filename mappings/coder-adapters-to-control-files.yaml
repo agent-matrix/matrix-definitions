@@ -1,0 +1,32 @@
+schema_version: '1.0'
+mappings:
+- adapter: claude-code
+  required_context_files: &id001
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  - MATRIX_TASKS.md
+  - MATRIX_ALLOWED_CHANGES.md
+  - MATRIX_ACCEPTANCE_CRITERIA.md
+  - MATRIX_VALIDATION.md
+  prompt_template: matrix-control/prompt-templates/claude-code.md
+  policy_file: matrix-control/coder-policies/claude-code.yaml
+- adapter: codex-chatgpt
+  required_context_files: *id001
+  prompt_template: matrix-control/prompt-templates/codex-chatgpt.md
+  policy_file: matrix-control/coder-policies/codex-chatgpt.yaml
+- adapter: cursor
+  required_context_files: *id001
+  prompt_template: matrix-control/prompt-templates/cursor.md
+  policy_file: matrix-control/coder-policies/cursor.yaml
+- adapter: ibm-bob
+  required_context_files: *id001
+  prompt_template: matrix-control/prompt-templates/ibm-bob.md
+  policy_file: matrix-control/coder-policies/ibm-bob.yaml
+- adapter: gitpilot
+  required_context_files: *id001
+  prompt_template: matrix-control/prompt-templates/gitpilot.md
+  policy_file: matrix-control/coder-policies/gitpilot.yaml
+- adapter: generic-ai-coder
+  required_context_files: *id001
+  prompt_template: matrix-control/prompt-templates/generic-ai-coder.md
+  policy_file: matrix-control/coder-policies/generic-ai-coder.yaml

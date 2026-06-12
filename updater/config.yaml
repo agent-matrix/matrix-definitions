@@ -1,0 +1,6 @@
+schema_version: '1.0'
+enabled: true
+auto_activation: false
+default_schedule: weekly
+candidate_branch_prefix: standards/update-
+requires_canary: true

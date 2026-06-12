@@ -1,0 +1,19 @@
+name: Security rule
+description: Report or propose a security-sensitive rule.
+title: "[Security rule] "
+labels: ["definitions"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the request.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Explain how this affects Matrix Builder, agent-generator, MatrixHub, or generated artifacts.
+    validations:
+      required: true

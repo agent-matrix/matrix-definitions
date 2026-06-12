@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: GHA-004
+title: OIDC preferred over long-lived deployment secrets
+domain: github-actions
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Cloud deployment workflows should prefer OIDC or short-lived credentials over stored long-lived secrets.
+source_refs:
+- github.actions.secure-use
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: oidc_preferred_for_deployments
+matrix_builder:
+  expose_in_report: true
+  report_section: github-actions
+  failure_message: Cloud deployment workflows should prefer OIDC or short-lived credentials over stored long-lived secrets.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

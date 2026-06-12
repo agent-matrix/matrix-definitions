@@ -1,0 +1,43 @@
+schema_version: '1.0'
+id: FASTAPI-009
+title: Centralized exception handling is configured
+domain: fastapi
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated FastAPI backends must include centralized error handling so internal details are not leaked to clients.
+source_refs:
+- fastapi.docs.security
+- owasp.asvs
+applies_to:
+  project_types:
+  - fastapi-backend
+  - fullstack-ai-app
+  files: &id001
+  - backend/app/core/errors.py
+generator:
+  action: render_file
+  required_files: &id002
+  - backend/app/core/errors.py
+  template_requirements:
+  - central_error_handler_required
+  files: *id001
+validation:
+  kind: file_required
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: fastapi
+  failure_message: Generated FastAPI backends must include centralized error handling so internal details are not leaked to clients.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

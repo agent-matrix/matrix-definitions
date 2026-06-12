@@ -1,0 +1,39 @@
+schema_version: '1.0'
+id: GHA-009
+title: Release permissions are separated from pull-request permissions
+domain: github-actions
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: CI workflows must not grant release-level permissions to pull-request jobs.
+source_refs:
+- github.actions.secure-use
+applies_to:
+  project_types:
+  - all
+  files: &id001
+  - .github/workflows/ci.yml
+  - .github/workflows/release.yml
+generator:
+  action: enforce_workflow_policy
+  template_requirements:
+  - separate_pr_and_release_permissions
+  files: *id001
+validation:
+  kind: github_actions_permission_boundary
+matrix_builder:
+  expose_in_report: true
+  report_section: github-actions
+  failure_message: CI workflows must not grant release-level permissions to pull-request jobs.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

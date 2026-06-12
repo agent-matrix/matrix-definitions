@@ -1,0 +1,38 @@
+schema_version: '1.0'
+id: GHA-010
+title: Untrusted GitHub context is not executed directly
+domain: github-actions
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated workflows must not interpolate untrusted issue, pull request, or comment fields directly into shell scripts.
+source_refs:
+- github.actions.secure-use
+applies_to:
+  project_types:
+  - all
+  files: &id001
+  - .github/workflows/*.yml
+generator:
+  action: reject_violation
+  template_requirements:
+  - untrusted_context_shell_injection_check
+  files: *id001
+validation:
+  kind: github_context_injection_check
+matrix_builder:
+  expose_in_report: true
+  report_section: github-actions
+  failure_message: Generated workflows must not interpolate untrusted issue, pull request, or comment fields directly into shell scripts.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

@@ -1,0 +1,19 @@
+name: New standard source
+description: Suggest a new trusted source to monitor or map.
+title: "[New standard source] "
+labels: ["definitions"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the request.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Explain how this affects Matrix Builder, agent-generator, MatrixHub, or generated artifacts.
+    validations:
+      required: true

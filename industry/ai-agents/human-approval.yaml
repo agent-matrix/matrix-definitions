@@ -1,0 +1,35 @@
+schema_version: '1.0'
+id: AGENT-005
+title: High-risk actions require human approval
+domain: ai-agents
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Agents that write files, execute commands, call external write APIs, or publish content require approval mode by
+  default.
+source_refs:
+- matrix.agent-safety.human-approval
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: human_approval_required
+matrix_builder:
+  expose_in_report: true
+  report_section: ai-agents
+  failure_message: Agents that write files, execute commands, call external write APIs, or publish content require approval
+    mode by default.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

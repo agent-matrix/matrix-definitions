@@ -1,0 +1,74 @@
+schema_version: '1.0'
+blueprint_id: github-repo-intelligence-agent
+name: GitHub Repo Intelligence Agent
+project_type: fullstack-ai-app
+goal: Build a controlled AI app that analyzes public GitHub repositories and produces improvement advice.
+target_user: developers
+quality_level: standard
+allowed_stack:
+  frontend: Next.js + React + TypeScript + Tailwind CSS
+  backend: FastAPI + Python
+  database: SQLite for local development
+  ai_layer: provider-agnostic LLM interface
+  packaging: Docker Compose for local orchestration
+required_pages:
+- Landing
+- Analyze Repository
+- Report
+- Methodology
+required_api_routes:
+- method: GET
+  path: /health
+  purpose: Service health check
+- method: POST
+  path: /api/analyze-repo
+  purpose: Analyze a GitHub repository URL
+- method: GET
+  path: /api/reports/{id}
+  purpose: Read a generated report
+required_files:
+- README.md
+- .env.example
+- docker-compose.yml
+- frontend/package.json
+- backend/pyproject.toml
+- backend/app/main.py
+- backend/tests/test_health.py
+- prompts/repository_analysis.md
+- schemas/report.schema.json
+- MATRIX_BLUEPRINT.yaml
+- MATRIX_STANDARDS.lock
+- MATRIX_TASKS.md
+- MATRIX_ALLOWED_CHANGES.md
+- MATRIX_ACCEPTANCE_CRITERIA.md
+- MATRIX_VALIDATION.md
+- docs/architecture.md
+- docs/security.md
+- docs/standards-report.md
+forbidden:
+- Do not add authentication in the MVP unless the blueprint is versioned.
+- Do not add payments, billing, or subscriptions.
+- Do not replace FastAPI with another backend framework.
+- Do not replace SQLite local mode with a hosted-only database.
+- Do not hardcode secrets or API keys.
+- Do not modify Matrix control files during implementation tasks.
+- Do not add dependencies outside the approved dependency policy.
+allowed_change_scopes:
+- task_id: TASK-001
+  description: Implement backend health and repository analysis schemas.
+  allowed_files:
+  - backend/app/main.py
+  - backend/app/schemas/report.py
+  - backend/tests/test_health.py
+- task_id: TASK-002
+  description: Implement the analysis endpoint and mocked GitHub metadata service.
+  allowed_files:
+  - backend/app/api/analyze.py
+  - backend/app/services/github_service.py
+  - backend/tests/test_analyze.py
+- task_id: TASK-003
+  description: Implement frontend form, loading state, and report cards.
+  allowed_files:
+  - frontend/app/page.tsx
+  - frontend/components/AnalyzeForm.tsx
+  - frontend/components/ReportCard.tsx

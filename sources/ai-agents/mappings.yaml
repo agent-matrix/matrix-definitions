@@ -1,0 +1,13 @@
+schema_version: '1.0'
+mappings:
+- source: matrix.agent-safety.prompt-injection
+  rules:
+  - AGENT-001
+  - AGENT-003
+  - AGENT-007
+- source: matrix.agent-safety.tool-permissions
+  rules:
+  - AGENT-002
+  - AGENT-005
+  - AGENT-006
+  - AGENT-008

@@ -1,0 +1,16 @@
+schema_version: '1.0'
+policy:
+  name: File Boundary Rules
+  fail_on:
+  - modified_file_not_in_active_task
+  - modified_immutable_control_file
+  - removed_required_file
+  inputs:
+  - git diff
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_ALLOWED_CHANGES.md
+rules:
+- RMD-003
+- RMD-005
+- RMD-103
+- RMD-106

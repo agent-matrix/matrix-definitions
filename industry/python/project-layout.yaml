@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: PY-006
+title: Use predictable Python project layout
+domain: python
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Python templates should use a predictable app/package/tests layout to support AI-coder control and validation.
+source_refs:
+- python.packaging.pyproject
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: python_layout_check
+matrix_builder:
+  expose_in_report: true
+  report_section: python
+  failure_message: Python templates should use a predictable app/package/tests layout to support AI-coder control and validation.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

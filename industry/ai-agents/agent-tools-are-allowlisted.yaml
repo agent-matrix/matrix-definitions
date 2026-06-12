@@ -1,0 +1,42 @@
+schema_version: '1.0'
+id: AGENT-009
+title: Agent tools are allowlisted
+domain: ai-agents
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated agents must declare an explicit allowlist of tools they can call and reject undeclared tools by default.
+source_refs:
+- matrix.agent-safety.tool-permissions
+applies_to:
+  project_types:
+  - ai-agent
+  - fullstack-ai-app
+  files: &id001
+  - agent/permissions.yaml
+generator:
+  action: render_file
+  required_files: &id002
+  - agent/permissions.yaml
+  template_requirements:
+  - tool_allowlist_required
+  files: *id001
+validation:
+  kind: tool_allowlist_present
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: ai-agents
+  failure_message: Generated agents must declare an explicit allowlist of tools they can call and reject undeclared tools by default.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

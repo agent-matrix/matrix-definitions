@@ -1,0 +1,42 @@
+schema_version: '1.0'
+id: FE-008
+title: Frontend security headers are declared
+domain: frontend
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Production frontend templates must declare security headers or document hosting configuration.
+source_refs: []
+applies_to:
+  project_types:
+  - frontend-app
+  - fullstack-ai-app
+  files: &id001
+  - frontend/next.config.ts
+  - docs/security.md
+generator:
+  action: render_config
+  required_files: &id002
+  - docs/security.md
+  template_requirements:
+  - frontend_security_headers_required
+  files: *id001
+validation:
+  kind: security_headers_policy
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: frontend
+  failure_message: Production frontend templates must declare security headers or document hosting configuration.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

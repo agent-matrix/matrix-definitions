@@ -1,0 +1,9 @@
+schema_version: '1.0'
+id: EXC-2026-0002
+rule_id: DOCKER-003
+status: draft
+reason: Frontend-only templates do not produce a runtime container by default.
+owner: Ruslan Magana
+expires_at: '2026-09-01'
+compensating_controls:
+- Template must include deployment documentation and MatrixHub metadata.

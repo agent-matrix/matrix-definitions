@@ -1,0 +1,37 @@
+schema_version: '1.0'
+id: RMD-008
+title: Templates must be remixable
+domain: ruslan-core
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: MatrixHub-ready templates must include remix instructions and clear extension points.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: create_required_file
+  required_files:
+  - MATRIXHUB.md
+validation:
+  kind: file_required
+  required_files:
+  - MATRIXHUB.md
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-core
+  failure_message: MatrixHub-ready templates must include remix instructions and clear extension points.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

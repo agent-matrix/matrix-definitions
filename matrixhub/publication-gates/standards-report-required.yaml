@@ -1,0 +1,8 @@
+schema_version: '1.0'
+gate: standards-report-required
+status: stable
+enforcement:
+  starter: warn
+  standard: warn
+  production: fail
+  enterprise: fail

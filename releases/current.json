@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "version": "2026.06.0",
+  "status": "stable",
+  "created_at": "2026-06-12T00:00:00Z",
+  "release_dir": "releases/2026.06.0",
+  "artifacts": {
+    "tar_gz": "matrix-definitions-2026.06.0.tar.gz",
+    "zip": "matrix-definitions-2026.06.0.zip",
+    "checksums": "checksums.txt"
+  },
+  "pack_manifest": "packs/current/manifest.json"
+}

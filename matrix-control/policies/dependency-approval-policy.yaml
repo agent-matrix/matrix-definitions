@@ -1,0 +1,24 @@
+schema_version: '1.0'
+policy:
+  name: Dependency Approval Policy
+  default: deny-new-dependencies
+  approval_record_required: true
+  approval_fields:
+  - dependency
+  - ecosystem
+  - version_constraint
+  - reason
+  - risk
+  - approved_by
+  - expires_at
+  blocked_categories:
+  - secrets-exfiltration
+  - runtime-code-execution-without-sandbox
+  - unmaintained-package
+  - package-with-known-critical-vulnerability
+  result_on_unapproved_dependency: rejected
+rules:
+- RMD-105
+- RMD-116
+- SUPPLY-002
+- SUPPLY-004

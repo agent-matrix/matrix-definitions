@@ -1,0 +1,37 @@
+schema_version: '1.0'
+id: DOCKER-001
+title: Dockerfile required for standard backend templates
+domain: docker
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Standard or higher backend templates should include a Dockerfile or explicitly document why containerization is not
+  applicable.
+source_refs:
+- docker.build.best-practices
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+  required_files:
+  - Dockerfile
+validation:
+  kind: dockerfile_required
+matrix_builder:
+  expose_in_report: true
+  report_section: docker
+  failure_message: Standard or higher backend templates should include a Dockerfile or explicitly document why containerization
+    is not applicable.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

@@ -1,0 +1,18 @@
+schema_version: '1.0'
+policy:
+  name: Matrix Definitions Signing Policy
+  signing_modes:
+    development: Creates local metadata for tests; not trusted for production.
+    production: Uses GitHub Actions OIDC and Cosign keyless signing.
+  required_production_permissions:
+  - contents:write
+  - id-token:write
+  - attestations:write
+  cosign:
+    sign_blob: true
+    bundle_required: true
+    identity_policy: Repository-controlled GitHub Actions identity must match the release workflow.
+  github_attestations:
+    build_provenance_required: true
+    sbom_attestation_required: true
+

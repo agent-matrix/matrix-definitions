@@ -1,0 +1,12 @@
+schema_version: '1.0'
+kind: template
+required_fields:
+- id
+- name
+- version
+- owner
+- license
+- quality_level
+- definitions_pack
+- files
+- created_at

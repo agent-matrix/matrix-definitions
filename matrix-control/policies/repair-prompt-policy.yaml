@@ -1,0 +1,19 @@
+schema_version: '1.0'
+policy:
+  name: Repair Prompt Policy
+  trigger: validation result is needs_repair or rejected
+  repair_scope: minimal
+  required_sections:
+  - violations
+  - exact_files_allowed
+  - exact_fixes_requested
+  - forbidden_changes
+  - validation_commands
+  forbidden:
+  - broad rewrite
+  - new feature request
+  - architecture redesign
+  - new dependencies unless explicitly approved
+rules:
+- RMD-104
+- RMD-120

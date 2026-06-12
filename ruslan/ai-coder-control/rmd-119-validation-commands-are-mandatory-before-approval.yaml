@@ -1,0 +1,37 @@
+schema_version: '1.0'
+id: RMD-119
+title: Validation commands are mandatory before approval
+domain: ruslan-ai-coder-control
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Every AI-coder task must include validation commands and the result must be recorded before approval.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: generate_validation_commands
+  required_files: &id001
+  - MATRIX_VALIDATION.md
+validation:
+  kind: validation_commands_required
+  required_files: *id001
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-ai-coder-control
+  failure_message: Every AI-coder task must include validation commands and the result must be recorded before approval.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to make AI coders implement controlled tasks rather than acting as uncontrolled
+  architects.

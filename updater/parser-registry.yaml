@@ -1,0 +1,6 @@
+schema_version: '1.0'
+parsers:
+  html: metadata-and-digest
+  yaml: structured-rule-source
+  json: structured-rule-source
+  pdf: manual-review-required

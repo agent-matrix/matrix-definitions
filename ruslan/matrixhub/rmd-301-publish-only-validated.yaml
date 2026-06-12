@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: RMD-301
+title: MatrixHub publishes only validated artifacts
+domain: ruslan-matrixhub
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: MatrixHub must reject templates that do not include validation results and a standards report.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: create_publication_gate
+validation:
+  kind: matrixhub_validation_gate
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-matrixhub
+  failure_message: MatrixHub must reject templates that do not include validation results and a standards report.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

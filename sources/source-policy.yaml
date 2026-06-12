@@ -1,0 +1,11 @@
+schema_version: '1.0'
+policy:
+  auto_fetch_allowed: true
+  auto_rule_proposal_allowed: true
+  auto_activation_allowed: false
+  critical_rule_requires_human_review: true
+  source_integrity:
+  - record_url
+  - record_hash_when_fetched
+  - record_checked_at
+  - record_license_if_known

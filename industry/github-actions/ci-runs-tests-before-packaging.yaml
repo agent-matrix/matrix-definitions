@@ -1,0 +1,43 @@
+schema_version: '1.0'
+id: GHA-012
+title: CI runs tests before packaging
+domain: github-actions
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated repositories must run unit or canary tests before package or image build steps.
+source_refs:
+- github.actions.secure-use
+applies_to:
+  project_types:
+  - all
+  files: &id001
+  - .github/workflows/ci.yml
+  - tests/
+generator:
+  action: render_ci_step
+  required_files: &id002
+  - .github/workflows/ci.yml
+  - tests/
+  template_requirements:
+  - tests_before_packaging
+  files: *id001
+validation:
+  kind: github_ci_tests_before_build
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: github-actions
+  failure_message: Generated repositories must run unit or canary tests before package or image build steps.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

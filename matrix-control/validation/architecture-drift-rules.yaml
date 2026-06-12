@@ -1,0 +1,18 @@
+schema_version: '1.0'
+policy:
+  name: Architecture Drift Rules
+  fail_on:
+  - changed_frontend_stack
+  - changed_backend_stack
+  - changed_database_mode
+  - renamed_required_route
+  - changed_project_type
+  - changed_quality_level
+  inputs:
+  - MATRIX_BLUEPRINT.yaml
+  - project files
+  - manifest
+rules:
+- RMD-004
+- RMD-101
+- RMD-115

@@ -1,0 +1,1325 @@
+schema_version: '1.0'
+mappings:
+- check_id: agent_audit_events_required
+  rule: AGENT-006
+  domain: ai-agents
+  severity: high
+  description: Agent templates must define audit events for tool calls, approvals, refusals, and validation failures.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: tool_allowlist_present
+  rule: AGENT-009
+  domain: ai-agents
+  severity: critical
+  description: Generated agents must declare an explicit allowlist of tools they can call and reject undeclared tools by default.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: tool_sandbox_policy
+  rule: AGENT-015
+  domain: ai-agents
+  severity: critical
+  description: Agents that execute code or shell commands must define a sandbox boundary and human approval requirements.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: human_approval_policy_present
+  rule: AGENT-016
+  domain: ai-agents
+  severity: critical
+  description: Generated agents must not perform destructive actions without explicit human approval and audit logging.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: agent_evals_present
+  rule: AGENT-007
+  domain: ai-agents
+  severity: medium
+  description: Standard or higher agent templates should include golden cases or eval examples for key behavior.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: AGENT-014
+  domain: ai-agents
+  severity: medium
+  description: Generated agents must include representative golden cases so AI-coder changes can be regression-tested.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: human_approval_required
+  rule: AGENT-005
+  domain: ai-agents
+  severity: critical
+  description: Agents that write files, execute commands, call external write APIs, or publish content require approval mode by default.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: memory_boundary_required
+  rule: AGENT-004
+  domain: ai-agents
+  severity: high
+  description: Agent templates with memory must document what can be stored, retrieved, expired, and audited.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: AGENT-013
+  domain: ai-agents
+  severity: high
+  description: Agents with memory must declare retention, redaction, deletion, and user review behavior.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: AGENT-010
+  domain: ai-agents
+  severity: high
+  description: Agent templates with network access must document allowed domains, methods, and approval requirements.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: agent_output_schema_required
+  rule: AGENT-003
+  domain: ai-agents
+  severity: critical
+  description: Agent outputs used by code or external systems must be validated against schemas.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: AGENT-011
+  domain: ai-agents
+  severity: high
+  description: Generated agents must explain which inputs are trusted, untrusted, system, developer, user, or tool outputs.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: prompt_safety_boundary_required
+  rule: AGENT-001
+  domain: ai-agents
+  severity: critical
+  description: Agent templates must separate instructions from untrusted context and include prompt-injection guidance.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: agent_resource_limits_documented
+  rule: AGENT-008
+  domain: ai-agents
+  severity: medium
+  description: Agent templates should document rate limits, token limits, retry policy, and runaway-loop controls.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: schema_required
+  rule: AGENT-012
+  domain: ai-agents
+  severity: medium
+  description: Agents that use retrieval must keep source identifiers with generated answers and reports.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: tool_boundaries_required
+  rule: AGENT-002
+  domain: ai-agents
+  severity: critical
+  description: Agent tools must declare permissions, risk level, input schema, output schema, and approval mode.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: api_unknown_fields_policy
+  rule: ASVS-006
+  domain: application-security
+  severity: medium
+  description: Generated APIs should reject unexpected fields in requests to reduce ambiguity and accidental privilege paths.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: api_contract_and_error_check
+  rule: ASVS-002
+  domain: application-security
+  severity: high
+  description: API templates must define request/response schemas and avoid leaking internals in errors.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: auth_explicit_check
+  rule: ASVS-005
+  domain: application-security
+  severity: high
+  description: Generated templates must not accidentally include partial or fake authentication; auth must be selected intentionally.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: auth_explicit_check
+  rule: ASVS-007
+  domain: application-security
+  severity: high
+  description: Templates must not generate implicit or partial authentication; auth must be selected, documented, and tested.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: safe_error_handling_required
+  rule: ASVS-004
+  domain: application-security
+  severity: high
+  description: Applications must return safe errors and log detailed diagnostics privately.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_upload_policy_check
+  rule: ASVS-008
+  domain: application-security
+  severity: high
+  description: Generated applications that accept files must declare size limits, allowed content types, and storage boundaries.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: input_validation_required
+  rule: ASVS-001
+  domain: application-security
+  severity: critical
+  description: APIs and forms must validate untrusted inputs before processing or passing data to tools/agents.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: asvs_versioned_refs_check
+  rule: ASVS-000
+  domain: application-security
+  severity: medium
+  description: Security reports should reference ASVS requirements using versioned identifiers when specific requirements are mapped.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: owasp_top10_guidance_present
+  rule: OWASP-001
+  domain: application-security
+  severity: medium
+  description: Generated web applications should include checks or guidance for common injection, auth, access control, and misconfiguration risks.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: secret_leak_check
+  rule: ASVS-003
+  domain: application-security
+  severity: critical
+  description: Generated templates must use environment variables or secret managers and include .env.example without real secrets.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: docker_secret_scan
+  rule: DOCKER-011
+  domain: docker
+  severity: critical
+  description: Docker templates must not use ARG or COPY patterns that expose secrets during image build.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: compose_dev_safety_check
+  rule: DOCKER-005
+  domain: docker
+  severity: medium
+  description: docker-compose.yml should be local-first, avoid real secrets, and document development-only defaults.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: dockerfile_pinned_base_image
+  rule: DOCKER-007
+  domain: docker
+  severity: high
+  description: Docker templates must avoid floating base images in production and enterprise profiles.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: docker_healthcheck_present
+  rule: DOCKER-009
+  domain: docker
+  severity: medium
+  description: Production containers must expose health checks to support deployment and rollback automation.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: dockerfile_required
+  rule: DOCKER-001
+  domain: docker
+  severity: medium
+  description: Standard or higher backend templates should include a Dockerfile or explicitly document why containerization is not applicable.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: DOCKER-002
+  domain: docker
+  severity: medium
+  description: Containerized templates must include .dockerignore to reduce build context and avoid copying secrets.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: docker_oci_labels_present
+  rule: DOCKER-012
+  domain: docker
+  severity: low
+  description: Generated Docker images should include OCI labels for source repository, revision, license, and version.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: docker_no_latest_tags
+  rule: DOCKER-008
+  domain: docker
+  severity: high
+  description: Generated Dockerfiles and Compose files must not use the latest tag for runtime images.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: docker_multistage_check
+  rule: DOCKER-003
+  domain: docker
+  severity: medium
+  description: Production container templates should use multi-stage builds where applicable.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: docker_non_root_user_check
+  rule: DOCKER-004
+  domain: docker
+  severity: high
+  description: Production container templates should avoid running as root at runtime.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: docker_cache_policy
+  rule: DOCKER-010
+  domain: docker
+  severity: medium
+  description: Generated Dockerfiles should clean package caches and avoid unnecessary build artifacts in runtime layers.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: docker_secret_copy_check
+  rule: DOCKER-006
+  domain: docker
+  severity: critical
+  description: Docker templates must not copy .env, credentials, SSH keys, or tokens into container images.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: FASTAPI-012
+  domain: fastapi
+  severity: medium
+  description: Generated FastAPI apps should support request identifiers so logs, traces, and validation failures are linkable.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: fastapi_structure_check
+  rule: FASTAPI-001
+  domain: fastapi
+  severity: medium
+  description: FastAPI templates should use a modular structure with API routes, schemas, services, and main app separated.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: FASTAPI-009
+  domain: fastapi
+  severity: medium
+  description: Generated FastAPI backends must include centralized error handling so internal details are not leaked to clients.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: cors_policy_check
+  rule: FASTAPI-010
+  domain: fastapi
+  severity: high
+  description: FastAPI templates must not generate permissive wildcard CORS for production or enterprise profiles.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: dependency_injection_guidance_present
+  rule: FASTAPI-006
+  domain: fastapi
+  severity: medium
+  description: FastAPI templates should use dependency injection for settings, clients, and services when practical.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: safe_error_handling_required
+  rule: FASTAPI-005
+  domain: fastapi
+  severity: high
+  description: FastAPI services should return safe errors and not leak stack traces or secrets to clients.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: directory_required
+  rule: FASTAPI-007
+  domain: fastapi
+  severity: medium
+  description: Generated FastAPI applications must organize API routers by capability so tasks can be scoped safely.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: health_endpoint_required
+  rule: FASTAPI-003
+  domain: fastapi
+  severity: medium
+  description: FastAPI backend templates must include a health check endpoint for local validation and deployment checks.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: openapi_metadata_check
+  rule: FASTAPI-014
+  domain: fastapi
+  severity: medium
+  description: Generated FastAPI apps must define OpenAPI title, version, tags, and schema descriptions for generated clients and docs.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: openapi_metadata_required
+  rule: FASTAPI-004
+  domain: fastapi
+  severity: medium
+  description: FastAPI APIs should expose OpenAPI metadata and describe generated endpoints.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: required_section_present
+  rule: FASTAPI-013
+  domain: fastapi
+  severity: medium
+  description: Production and enterprise FastAPI templates must declare a rate-limit strategy for public write endpoints.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: api_schema_required
+  rule: FASTAPI-008
+  domain: fastapi
+  severity: high
+  description: Every generated FastAPI endpoint must use explicit request and response schemas to support validation and AI-coder acceptance criteria.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: fastapi_security_explicit
+  rule: FASTAPI-002
+  domain: fastapi
+  severity: high
+  description: FastAPI templates must not include placeholder auth; security dependencies must be selected and documented explicitly.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: FASTAPI-011
+  domain: fastapi
+  severity: high
+  description: Generated FastAPI apps must use typed settings and environment loading instead of hard-coded configuration.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: accessibility_basics_check
+  rule: FE-001
+  domain: frontend
+  severity: medium
+  description: Generated frontend templates should include accessible labels, semantic HTML, and keyboard-friendly interactions.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: frontend_accessible_names
+  rule: FE-005
+  domain: frontend
+  severity: high
+  description: Generated frontend controls must include accessible labels or names so interfaces are usable and testable.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: design_tokens_present
+  rule: FE-002
+  domain: frontend
+  severity: low
+  description: Generated frontend templates should define reusable design tokens for spacing, colors, radius, typography, and shadows.[],
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: frontend_safe_links
+  rule: FE-007
+  domain: frontend
+  severity: medium
+  description: Generated external links must use safe target and rel attributes and avoid leaking referrer information when appropriate.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: form_validation_required
+  rule: FE-003
+  domain: frontend
+  severity: high
+  description: Generated forms must validate client-side for UX and server-side for trust.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: frontend_form_schema_validation
+  rule: FE-006
+  domain: frontend
+  severity: high
+  description: Generated forms must validate user input with a schema before submission to backend APIs.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: security_headers_policy
+  rule: FE-008
+  domain: frontend
+  severity: high
+  description: Production frontend templates must declare security headers or document hosting configuration.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: NEXT-004
+  domain: frontend
+  severity: medium
+  description: Matrix Builder frontend templates must include predictable loading and error UI for every network-driven screen.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: nextjs_structure_check
+  rule: NEXT-001
+  domain: frontend
+  severity: medium
+  description: Next.js templates should use a predictable app/components/lib structure and clear server/client boundaries.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: next_env_boundary_check
+  rule: NEXT-003
+  domain: frontend
+  severity: critical
+  description: Generated Next.js templates must not expose private environment variables to client code.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: next_boundary_check
+  rule: NEXT-002
+  domain: frontend
+  severity: high
+  description: Generated Next.js apps must separate server-only code from client components to protect secrets and reduce bundle risk.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: state_management_simplicity_check
+  rule: FE-004
+  domain: frontend
+  severity: low
+  description: Generated MVP frontends should avoid unnecessary state libraries unless the blueprint explicitly requires them.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: github_ci_tests_before_build
+  rule: GHA-012
+  domain: github-actions
+  severity: high
+  description: Generated repositories must run unit or canary tests before package or image build steps.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: codeowners_required
+  rule: GHA-003
+  domain: github-actions
+  severity: high
+  description: Repositories with workflows should include CODEOWNERS protection for workflow and definitions changes.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: artifact_verification_present
+  rule: GHA-011
+  domain: github-actions
+  severity: high
+  description: Release workflows must verify checksums and attestations before publishing Matrix Builder artifacts.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: github_actions_minimal_permissions
+  rule: GHA-001
+  domain: github-actions
+  severity: critical
+  description: Generated workflows must declare least-privilege permissions instead of relying on broad defaults.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: oidc_preferred_for_deployments
+  rule: GHA-004
+  domain: github-actions
+  severity: high
+  description: Cloud deployment workflows should prefer OIDC or short-lived credentials over stored long-lived secrets.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: github_actions_pinned_actions
+  rule: GHA-002
+  domain: github-actions
+  severity: critical
+  description: Third-party GitHub Actions should be pinned to immutable references in production-grade workflows.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: github_actions_permission_boundary
+  rule: GHA-009
+  domain: github-actions
+  severity: critical
+  description: CI workflows must not grant release-level permissions to pull-request jobs.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: github_actions_script_injection_check
+  rule: GHA-006
+  domain: github-actions
+  severity: high
+  description: Workflows must treat contexts from issues, PRs, and commit messages as untrusted and avoid direct shell interpolation.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: github_actions_secret_handling
+  rule: GHA-005
+  domain: github-actions
+  severity: critical
+  description: Generated workflows must not print secrets and must avoid unsafe handling of untrusted input in shell scripts.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: self_hosted_runner_risk_documented
+  rule: GHA-007
+  domain: github-actions
+  severity: high
+  description: Workflows that use self-hosted runners must document isolation, secret exposure risk, runner trust level, and approval requirements.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: github_context_injection_check
+  rule: GHA-010
+  domain: github-actions
+  severity: critical
+  description: Generated workflows must not interpolate untrusted issue, pull request, or comment fields directly into shell scripts.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: github_workflow_lint_configured
+  rule: GHA-008
+  domain: github-actions
+  severity: medium
+  description: Generated repositories with GitHub Actions should include workflow linting or validation to catch insecure or invalid workflows.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: OBS-006
+  domain: observability
+  severity: high
+  description: Generated agent and MatrixHub templates must define a structured audit event schema for important actions.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: audit_events_required
+  rule: OBS-004
+  domain: observability
+  severity: high
+  description: Systems that validate AI-coder output or agent tool use must define audit events.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: logging_guidance_present
+  rule: OBS-001
+  domain: observability
+  severity: medium
+  description: Backends should include structured logging guidance and avoid logging secrets.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: metrics_guidance_present
+  rule: OBS-002
+  domain: observability
+  severity: low
+  description: Production templates should document metrics hooks for requests, errors, latency, and agent tool calls.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: healthcheck_policy_present
+  rule: OBS-008
+  domain: observability
+  severity: medium
+  description: Production services must define readiness and liveness behavior for deployment platforms.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: logging_correlation_id_present
+  rule: OBS-005
+  domain: observability
+  severity: medium
+  description: Generated services must include request or trace identifiers in logs to support debugging and incident review.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: log_secret_scan
+  rule: OBS-007
+  domain: observability
+  severity: critical
+  description: Generated logging configuration must document and enforce redaction of secrets, tokens, and personal data.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: tracing_guidance_present
+  rule: OBS-003
+  domain: observability
+  severity: low
+  description: Enterprise templates should include tracing guidance for service calls and agent workflows.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: PY-014
+  domain: python
+  severity: medium
+  description: Templates must declare whether generated dependencies are locked, ranges, or floating so downstream users understand reproducibility.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: env_example_safe
+  rule: PY-011
+  domain: python
+  severity: high
+  description: Templates that use environment variables must include .env.example with placeholders and no real secrets.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: python_linting_config_present
+  rule: PY-003
+  domain: python
+  severity: medium
+  description: Standard or higher Python templates should include linting configuration, preferably in pyproject.toml.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: secret_scan
+  rule: PY-016
+  domain: python
+  severity: critical
+  description: Generated Python projects must not include real API keys, tokens, passwords, or credential material in any generated file.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: pyproject_metadata_required
+  rule: PY-013
+  domain: python
+  severity: medium
+  description: Generated Python projects must include project name, description, Python version, license, and authors metadata.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: python_packaging_metadata_check
+  rule: PY-002
+  domain: python
+  severity: medium
+  description: Python templates should include project metadata, dependencies, optional dev dependencies, and supported Python version.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: python_layout_check
+  rule: PY-006
+  domain: python
+  severity: medium
+  description: Python templates should use a predictable app/package/tests layout to support AI-coder control and validation.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: PY-001
+  domain: python
+  severity: high
+  description: Python templates should use pyproject.toml as the central project configuration file.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: pyproject_section_required
+  rule: PY-010
+  domain: python
+  severity: high
+  description: Generated Python templates must include test configuration and a deterministic test command.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: pyproject_build_system
+  rule: PY-007
+  domain: python
+  severity: high
+  description: Generated Python packages must declare a build backend and build requirements in pyproject.toml.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: pyproject_section_required
+  rule: PY-008
+  domain: python
+  severity: medium
+  description: Standard and higher Python templates must include lint configuration so generated code has deterministic quality checks.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: dependency_groups_present
+  rule: PY-012
+  domain: python
+  severity: medium
+  description: Generated Python projects should separate runtime dependencies from development tooling to keep production artifacts small.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: directory_required
+  rule: PY-015
+  domain: python
+  severity: medium
+  description: Generated packages must use a predictable source layout so validators and AI-coder tasks can target files safely.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: tests_required
+  rule: PY-005
+  domain: python
+  severity: high
+  description: Generated Python backends and agents must include tests for health checks, schemas, and key services.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: pyproject_section_required
+  rule: PY-009
+  domain: python
+  severity: medium
+  description: Generated Python backends should include a type checking policy so AI-coder patches can be validated consistently.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: python_typing_config_present
+  rule: PY-004
+  domain: python
+  severity: medium
+  description: Python services should include type-checking guidance or configuration appropriate to profile.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: dependency_review_present
+  rule: SSDF-003
+  domain: secure-development
+  severity: high
+  description: Generated projects must include dependency update and review controls appropriate to the quality profile.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: security_docs_required
+  rule: SSDF-001
+  domain: secure-development
+  severity: high
+  description: Generated production templates must include security development notes, vulnerability response guidance, and dependency review expectations.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: secure_defaults_check
+  rule: SSDF-004
+  domain: secure-development
+  severity: high
+  description: Generated templates should prefer secure defaults and document intentional insecure development-only settings.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: threat_model_notes_required
+  rule: SSDF-005
+  domain: secure-development
+  severity: medium
+  description: Production and enterprise profiles should include threat model notes for data flow, trust boundaries, and risky tools.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: SSDF-002
+  domain: secure-development
+  severity: medium
+  description: Generated publishable repositories should include SECURITY.md or vulnerability reporting guidance.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: attestation_metadata_required
+  rule: SLSA-004
+  domain: supply-chain
+  severity: high
+  description: Signed releases should include attestation metadata that links artifacts to build provenance.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: dependabot_or_policy_required
+  rule: SUPPLY-001
+  domain: supply-chain
+  severity: medium
+  description: GitHub-hosted generated repositories should include Dependabot configuration or dependency update policy.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: SUPPLY-003
+  domain: supply-chain
+  severity: medium
+  description: Generated templates must document whether dependencies are pinned, ranged, or managed by automated update tooling.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: SUPPLY-005
+  domain: supply-chain
+  severity: medium
+  description: Generated open-source or MatrixHub templates must include a license file and dependency license policy.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: artifact_manifest_required
+  rule: SLSA-002
+  domain: supply-chain
+  severity: high
+  description: Generated publishable packages must include an artifact manifest with files, checksums, generator version, and definitions pack version.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: release_artifact_immutability
+  rule: SLSA-006
+  domain: supply-chain
+  severity: critical
+  description: Signed release artifacts must not be modified after checksums, provenance, or attestations have been generated.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: sbom_present
+  rule: SUPPLY-006
+  domain: supply-chain
+  severity: high
+  description: Production and enterprise releases must include a software bill of materials for generated packages or images.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: sbom_required
+  rule: SLSA-003
+  domain: supply-chain
+  severity: medium
+  description: Production publishable templates should include or be able to generate an SBOM.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: scorecard_guidance_present
+  rule: SUPPLY-002
+  domain: supply-chain
+  severity: medium
+  description: Public MatrixHub templates should be compatible with OpenSSF Scorecard checks.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: signature_metadata_present
+  rule: SLSA-005
+  domain: supply-chain
+  severity: high
+  description: Production releases should include a signature bundle or equivalent verification metadata.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: provenance_metadata_required
+  rule: SLSA-001
+  domain: supply-chain
+  severity: high
+  description: Production and enterprise release artifacts should include provenance metadata or attestation.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: vulnerability_scan_configured
+  rule: SUPPLY-004
+  domain: supply-chain
+  severity: high
+  description: Production and enterprise templates must include vulnerability scanning in CI or release validation.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: tool_permissions_declared
+  rule: RMD-201
+  domain: ruslan-agent-safety
+  severity: critical
+  description: Generated agents must include explicit tool permissions, risk level, inputs, outputs, and approval requirements.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: no_secret_placeholders_in_prompts
+  rule: RMD-202
+  domain: ruslan-agent-safety
+  severity: critical
+  description: Generated agents must keep secrets outside prompts and declare safe secret-handling boundaries.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: untrusted_context_boundary_present
+  rule: RMD-203
+  domain: ruslan-agent-safety
+  severity: high
+  description: External user input, repository content, web pages, documents, tool outputs, and retrieved context must be labeled untrusted until validated.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: output_schema_required
+  rule: RMD-204
+  domain: ruslan-agent-safety
+  severity: high
+  description: Generated agents must define output schemas for machine-consumed AI outputs.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: audit_guidance_required
+  rule: RMD-205
+  domain: ruslan-agent-safety
+  severity: high
+  description: Agent templates must document or implement audit logging for tool calls and high-risk decisions.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: risky_tools_require_approval
+  rule: RMD-206
+  domain: ruslan-agent-safety
+  severity: critical
+  description: Tools that write files, call external APIs, send messages, modify repositories, or execute commands require approval mode unless explicitly waived.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: architecture_drift_detection
+  rule: RMD-101
+  domain: ruslan-ai-coder-control
+  severity: critical
+  description: AI coders receive implementation tasks. They must not redefine architecture, stack, rules, quality profile, or MatrixHub publication requirements.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: prompt_pack_scope_check
+  rule: RMD-102
+  domain: ruslan-ai-coder-control
+  severity: high
+  description: AI-coder prompts must be task-scoped with allowed files, forbidden changes, acceptance criteria, and validation commands.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: control_file_hash_check
+  rule: RMD-103
+  domain: ruslan-ai-coder-control
+  severity: critical
+  description: AI coders must not modify Matrix control files unless a new blueprint version is created.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: repair_prompt_available
+  rule: RMD-104
+  domain: ruslan-ai-coder-control
+  severity: high
+  description: Validation failures must produce a minimal repair prompt that names exact violations and allowed files.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: dependency_policy_check
+  rule: RMD-105
+  domain: ruslan-ai-coder-control
+  severity: critical
+  description: AI coders must not add dependencies outside the approved dependency policy for the selected blueprint.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: diff_validation_required
+  rule: RMD-106
+  domain: ruslan-ai-coder-control
+  severity: critical
+  description: All AI-coder output must be checked as a diff against the blueprint scaffold before approval.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: metadata_attribution_present
+  rule: RMD-901
+  domain: ruslan-branding
+  severity: low
+  description: Generated Matrix Builder artifacts should include non-invasive metadata linking to ruslanmv.com definitions.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: generator_metadata_present
+  rule: RMD-902
+  domain: ruslan-branding
+  severity: low
+  description: Generated artifacts should identify Matrix Builder and the active definitions pack in metadata or reports.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: definition_provenance_present
+  rule: RMD-903
+  domain: ruslan-branding
+  severity: medium
+  description: Generated reports must show definitions pack, RMD version, quality profile, and source references.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: RMD-001
+  domain: ruslan-core
+  severity: critical
+  description: Every generated project must include MATRIX_BLUEPRINT.yaml as the source of truth for architecture, stack, required files, forbidden changes, and tasks.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: standards_lock_required
+  rule: RMD-002
+  domain: ruslan-core
+  severity: critical
+  description: Every generated project must include MATRIX_STANDARDS.lock recording the definitions pack, selected quality profile, applied rules, and control-file hashes.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: allowed_files_policy
+  rule: RMD-003
+  domain: ruslan-core
+  severity: critical
+  description: AI-coder tasks must define allowed file paths, and validation must reject modifications outside that list.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: architecture_drift_detection
+  rule: RMD-004
+  domain: ruslan-core
+  severity: critical
+  description: Generated or edited output must preserve the selected architecture, stack, API contract, and quality profile unless a new blueprint is explicitly approved.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: RMD-005
+  domain: ruslan-core
+  severity: high
+  description: Every blueprint must include a human-readable architecture document explaining components, data flow, AI boundaries, and validation.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: readme_sections_required
+  rule: RMD-006
+  domain: ruslan-core
+  severity: high
+  description: Every generated project must include a README explaining purpose, local setup, API routes, AI-coder usage, validation, and MatrixHub publishing.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: local_run_instructions_required
+  rule: RMD-007
+  domain: ruslan-core
+  severity: high
+  description: Generated projects must run locally with documented commands and without mandatory paid cloud services for the default path.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: RMD-008
+  domain: ruslan-core
+  severity: medium
+  description: MatrixHub-ready templates must include remix instructions and clear extension points.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: file_required
+  rule: RMD-009
+  domain: ruslan-core
+  severity: critical
+  description: Every generated project must include a validation or standards report describing applied rules, checks, warnings, and failures.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: repair_prompt_available
+  rule: RMD-010
+  domain: ruslan-core
+  severity: high
+  description: When validation fails, Matrix Builder or agent-generator must generate a scoped repair prompt instead of silently accepting drift.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: matrixhub_validation_gate
+  rule: RMD-301
+  domain: ruslan-matrixhub
+  severity: critical
+  description: MatrixHub must reject templates that do not include validation results and a standards report.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: matrixhub_metadata_required
+  rule: RMD-302
+  domain: ruslan-matrixhub
+  severity: high
+  description: Every MatrixHub template must include machine-readable metadata describing type, version, quality level, pack version, files, prompts, and ownership.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: remix_docs_required
+  rule: RMD-303
+  domain: ruslan-matrixhub
+  severity: medium
+  description: Public templates must explain how to remix safely without violating the blueprint contract.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: standards_report_public
+  rule: RMD-304
+  domain: ruslan-matrixhub
+  severity: high
+  description: MatrixHub-published templates must expose the standards report and applied definitions version.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true
+- check_id: signature_metadata_present
+  rule: RMD-305
+  domain: ruslan-matrixhub
+  severity: high
+  description: Production-grade MatrixHub templates must include checksums and signature/provenance metadata.
+  engine_contract:
+    input: generated_project_tree
+    output: pass_warn_fail
+    repair_prompt: true

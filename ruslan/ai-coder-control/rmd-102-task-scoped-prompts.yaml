@@ -1,0 +1,38 @@
+schema_version: '1.0'
+id: RMD-102
+title: Task-scoped prompts required
+domain: ruslan-ai-coder-control
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: AI-coder prompts must be task-scoped with allowed files, forbidden changes, acceptance criteria, and validation commands.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: generate_task_prompt_pack
+  required_files:
+  - MATRIX_TASKS.md
+  - MATRIX_ACCEPTANCE_CRITERIA.md
+  - MATRIX_VALIDATION.md
+validation:
+  kind: prompt_pack_scope_check
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-ai-coder-control
+  failure_message: AI-coder prompts must be task-scoped with allowed files, forbidden changes, acceptance criteria, and validation
+    commands.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

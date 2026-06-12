@@ -1,0 +1,7 @@
+schema_version: '1.0'
+policy:
+  publish_requires_validation: true
+  publish_requires_standards_report: true
+  production_requires_provenance: true
+  production_requires_checksums: true
+  critical_failures_block_publication: true

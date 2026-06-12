@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: RMD-305
+title: Production publication requires signed artifact metadata
+domain: ruslan-matrixhub
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Production-grade MatrixHub templates must include checksums and signature/provenance metadata.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: require_release_metadata
+validation:
+  kind: signature_metadata_present
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-matrixhub
+  failure_message: Production-grade MatrixHub templates must include checksums and signature/provenance metadata.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

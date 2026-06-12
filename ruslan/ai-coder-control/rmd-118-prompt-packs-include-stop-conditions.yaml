@@ -1,0 +1,36 @@
+schema_version: '1.0'
+id: RMD-118
+title: Prompt packs must include stop conditions
+domain: ruslan-ai-coder-control
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: AI-coder prompts must include stop conditions for architecture changes, dependency changes, ambiguous requirements,
+  and control-file edits.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: insert_prompt_stop_conditions
+validation:
+  kind: prompt_stop_conditions_present
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-ai-coder-control
+  failure_message: AI-coder prompts must include stop conditions for architecture changes, dependency changes, ambiguous
+    requirements, and control-file edits.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to make AI coders implement controlled tasks rather than acting as uncontrolled
+  architects.

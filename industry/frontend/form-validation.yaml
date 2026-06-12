@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: FE-003
+title: Client and server form validation required
+domain: frontend
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated forms must validate client-side for UX and server-side for trust.
+source_refs:
+- owasp.asvs
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: form_validation_required
+matrix_builder:
+  expose_in_report: true
+  report_section: frontend
+  failure_message: Generated forms must validate client-side for UX and server-side for trust.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

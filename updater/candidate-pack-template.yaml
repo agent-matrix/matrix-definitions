@@ -1,0 +1,6 @@
+schema_version: '1.0'
+candidate_pack:
+  base_version: 2026.06.0
+  changes: []
+  requires_review: true
+  canary_results: null

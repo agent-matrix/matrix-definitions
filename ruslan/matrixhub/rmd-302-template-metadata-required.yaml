@@ -1,0 +1,35 @@
+schema_version: '1.0'
+id: RMD-302
+title: MatrixHub template metadata required
+domain: ruslan-matrixhub
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Every MatrixHub template must include machine-readable metadata describing type, version, quality level, pack version,
+  files, prompts, and ownership.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: create_matrixhub_metadata
+validation:
+  kind: matrixhub_metadata_required
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-matrixhub
+  failure_message: Every MatrixHub template must include machine-readable metadata describing type, version, quality level,
+    pack version, files, prompts, and ownership.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

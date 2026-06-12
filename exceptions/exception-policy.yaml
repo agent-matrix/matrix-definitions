@@ -1,0 +1,7 @@
+schema_version: '1.0'
+policy:
+  exceptions_allowed: true
+  critical_requires_owner_approval: true
+  requires_expiry: true
+  max_days_default: 90
+  permanent_exceptions_allowed: false

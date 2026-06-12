@@ -1,0 +1,93 @@
+name: Release standards pack
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to release, for example 2026.06.0
+        required: true
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip pyyaml jsonschema pytest
+
+      - name: Validate repository
+        run: |
+          python tools/validate_schemas.py
+          python tools/validate_rules.py
+          python tools/check_rule_ids.py
+          python tools/validate_contracts.py
+          python tools/validate_exceptions.py
+          pytest -q
+
+      - name: Build standards pack
+        run: python tools/build_pack.py
+
+      - name: Generate SBOM
+        run: python tools/generate_sbom.py
+
+      - name: Generate provenance
+        run: python tools/generate_provenance.py
+
+      - name: Create release bundle
+        run: python tools/create_release_bundle.py
+
+      - name: Verify pack before signing
+        run: python tools/verify_pack.py
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign release artifacts with Cosign keyless signing
+        env:
+          COSIGN_YES: 'true'
+        run: |
+          VERSION=$(cat VERSION)
+          mkdir -p packs/current/signatures releases/${VERSION}
+          cosign sign-blob --yes --bundle packs/current/signatures/cosign.bundle.json releases/${VERSION}/matrix-definitions-${VERSION}.tar.gz
+          cp packs/current/signatures/cosign.bundle.json releases/${VERSION}/cosign.bundle.json
+
+      - name: Generate GitHub build provenance attestation
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: releases/${{ github.event.inputs.version || github.ref_name }}/matrix-definitions-${{ github.event.inputs.version || github.ref_name }}.tar.gz
+
+      - name: Generate GitHub SBOM attestation
+        uses: actions/attest-sbom@v2
+        with:
+          subject-path: releases/${{ github.event.inputs.version || github.ref_name }}/matrix-definitions-${{ github.event.inputs.version || github.ref_name }}.tar.gz
+          sbom-path: releases/${{ github.event.inputs.version || github.ref_name }}/sbom.cdx.json
+
+      - name: Generate release notes
+        run: python tools/generate_release_notes.py
+
+      - name: Upload release artifacts
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            releases/*/matrix-definitions-*.tar.gz
+            releases/*/matrix-definitions-*.zip
+            releases/*/checksums.txt
+            releases/*/sbom.cdx.json
+            releases/*/provenance.intoto.jsonl
+            releases/*/cosign.bundle.json
+            releases/*/release-notes.md

@@ -1,0 +1,20 @@
+schema_version: '1.0'
+policy:
+  name: Architecture Drift Detection Policy
+  fail_on:
+  - changed_stack
+  - changed_project_type
+  - renamed_required_api_route
+  - removed_required_file
+  - modified_control_file
+  - changed_quality_level
+  - changed_standards_pack
+  - added_forbidden_feature
+  compare_against:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  result_on_drift: rejected
+rules:
+- RMD-004
+- RMD-103
+- RMD-115

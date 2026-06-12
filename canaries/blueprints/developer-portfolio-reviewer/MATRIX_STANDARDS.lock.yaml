@@ -1,0 +1,33 @@
+schema_version: '1.0'
+generated_at: '2026-06-12T00:00:00Z'
+definitions_pack:
+  pack_id: matrix-definitions-current
+  version: 2026.06.0
+  checksum: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+quality_level: starter
+rules:
+- RMD-001
+- RMD-002
+- RMD-003
+- RMD-004
+- RMD-005
+- RMD-101
+- RMD-102
+- RMD-113
+- PY-001
+- FASTAPI-001
+- DOCKER-001
+- GHA-001
+- AGENT-001
+- MATRIXHUB-001
+control_files:
+- MATRIX_BLUEPRINT.yaml
+- MATRIX_STANDARDS.lock
+- MATRIX_TASKS.md
+- MATRIX_ALLOWED_CHANGES.md
+- MATRIX_ACCEPTANCE_CRITERIA.md
+- MATRIX_VALIDATION.md
+checksums:
+  MATRIX_BLUEPRINT.yaml: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  MATRIX_TASKS.md: sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  MATRIX_ALLOWED_CHANGES.md: sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd

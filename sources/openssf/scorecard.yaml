@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: openssf.scorecard
+name: OpenSSF Scorecard
+authority: OpenSSF
+tier: 1
+type: source-metadata
+url: https://scorecard.dev/
+refresh_policy: monthly
+domains:
+- supply-chain

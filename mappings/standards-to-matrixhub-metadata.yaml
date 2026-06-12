@@ -1,0 +1,121 @@
+schema_version: '1.0'
+mappings:
+- rule: SLSA-004
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: SUPPLY-001
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: recommended
+- rule: SUPPLY-003
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: recommended
+- rule: SUPPLY-005
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: recommended
+- rule: SLSA-002
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: SLSA-006
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: SUPPLY-006
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: SLSA-003
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: recommended
+- rule: SUPPLY-002
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: recommended
+- rule: SLSA-005
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: SLSA-001
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: SUPPLY-004
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: RMD-301
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: RMD-302
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: RMD-303
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: recommended
+- rule: RMD-304
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required
+- rule: RMD-305
+  metadata:
+  - quality_level
+  - standards_pack
+  - validation_status
+  - artifact_manifest
+  publication_gate: required

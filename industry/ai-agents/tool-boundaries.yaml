@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: AGENT-002
+title: Tool boundaries required
+domain: ai-agents
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Agent tools must declare permissions, risk level, input schema, output schema, and approval mode.
+source_refs:
+- matrix.agent-safety.tool-permissions
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: tool_boundaries_required
+matrix_builder:
+  expose_in_report: true
+  report_section: ai-agents
+  failure_message: Agent tools must declare permissions, risk level, input schema, output schema, and approval mode.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

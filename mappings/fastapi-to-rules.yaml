@@ -1,0 +1,18 @@
+schema_version: '1.0'
+mappings:
+- source: fastapi.docs.security
+  rules:
+  - FASTAPI-012
+  - FASTAPI-001
+  - FASTAPI-009
+  - FASTAPI-010
+  - FASTAPI-006
+  - FASTAPI-005
+  - FASTAPI-007
+  - FASTAPI-003
+  - FASTAPI-014
+  - FASTAPI-004
+  - FASTAPI-013
+  - FASTAPI-008
+  - FASTAPI-002
+  - FASTAPI-011

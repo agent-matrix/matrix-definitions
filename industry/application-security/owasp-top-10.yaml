@@ -1,0 +1,35 @@
+schema_version: '1.0'
+id: OWASP-001
+title: Map common web risks to template checks
+domain: application-security
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Generated web applications should include checks or guidance for common injection, auth, access control, and misconfiguration
+  risks.
+source_refs:
+- owasp.top10
+applies_to:
+  project_types:
+  - all
+generator:
+  action: validate_and_report
+validation:
+  kind: owasp_top10_guidance_present
+matrix_builder:
+  expose_in_report: true
+  report_section: application-security
+  failure_message: Generated web applications should include checks or guidance for common injection, auth, access control,
+    and misconfiguration risks.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

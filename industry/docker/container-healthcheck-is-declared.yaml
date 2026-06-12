@@ -1,0 +1,44 @@
+schema_version: '1.0'
+id: DOCKER-009
+title: Container healthcheck is declared
+domain: docker
+severity: medium
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Production containers must expose health checks to support deployment and rollback automation.
+source_refs:
+- docker.build.best-practices
+applies_to:
+  project_types:
+  - fastapi-backend
+  - fullstack-ai-app
+  - api-service
+  files: &id001
+  - Dockerfile
+  - backend/app/api/health.py
+generator:
+  action: render_healthcheck
+  required_files: &id002
+  - Dockerfile
+  template_requirements:
+  - container_healthcheck_required
+  files: *id001
+validation:
+  kind: docker_healthcheck_present
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: docker
+  failure_message: Production containers must expose health checks to support deployment and rollback automation.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

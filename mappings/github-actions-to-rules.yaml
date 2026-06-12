@@ -1,0 +1,16 @@
+schema_version: '1.0'
+mappings:
+- source: github.actions.secure-use
+  rules:
+  - GHA-012
+  - GHA-003
+  - GHA-011
+  - GHA-001
+  - GHA-004
+  - GHA-002
+  - GHA-009
+  - GHA-006
+  - GHA-005
+  - GHA-007
+  - GHA-010
+  - GHA-008

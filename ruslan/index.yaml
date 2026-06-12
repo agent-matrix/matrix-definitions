@@ -1,0 +1,42 @@
+schema_version: '1.0'
+name: Ruslan Magana Definitions Index
+version: 1.0.0
+owner: Ruslan Magana
+rule_prefix: RMD
+description: Index of Ruslan Magana Definitions used by Matrix Builder, agent-generator, and MatrixHub.
+groups:
+  core:
+  - RMD-001
+  - RMD-002
+  - RMD-003
+  - RMD-004
+  - RMD-005
+  - RMD-006
+  - RMD-007
+  - RMD-008
+  - RMD-009
+  - RMD-010
+  ai_coder_control:
+  - RMD-101
+  - RMD-102
+  - RMD-103
+  - RMD-104
+  - RMD-105
+  - RMD-106
+  agent_safety:
+  - RMD-201
+  - RMD-202
+  - RMD-203
+  - RMD-204
+  - RMD-205
+  - RMD-206
+  matrixhub:
+  - RMD-301
+  - RMD-302
+  - RMD-303
+  - RMD-304
+  - RMD-305
+  branding:
+  - RMD-901
+  - RMD-902
+  - RMD-903

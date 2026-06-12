@@ -1,0 +1,11 @@
+schema_version: '1.0'
+template_type: mcp-server
+required_metadata:
+- template_id
+- name
+- version
+- quality_level
+- standards_pack
+- description
+required_reports:
+- standards-report

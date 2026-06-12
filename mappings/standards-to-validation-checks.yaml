@@ -1,0 +1,1589 @@
+schema_version: '1.0'
+mappings:
+- rule: AGENT-006
+  domain: ai-agents
+  validation_check: agent_audit_events_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-009
+  domain: ai-agents
+  validation_check: tool_allowlist_present
+  fail_on: []
+  required_files:
+  - agent/permissions.yaml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-015
+  domain: ai-agents
+  validation_check: tool_sandbox_policy
+  fail_on: []
+  required_files:
+  - docs/tool-sandbox.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-016
+  domain: ai-agents
+  validation_check: human_approval_policy_present
+  fail_on: []
+  required_files:
+  - agent/approval-policy.yaml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-007
+  domain: ai-agents
+  validation_check: agent_evals_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: AGENT-014
+  domain: ai-agents
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - evals/golden_cases.json
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-005
+  domain: ai-agents
+  validation_check: human_approval_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-004
+  domain: ai-agents
+  validation_check: memory_boundary_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-013
+  domain: ai-agents
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - docs/memory-policy.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-010
+  domain: ai-agents
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - agent/network-policy.yaml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-003
+  domain: ai-agents
+  validation_check: agent_output_schema_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-011
+  domain: ai-agents
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - docs/prompt-boundaries.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-001
+  domain: ai-agents
+  validation_check: prompt_safety_boundary_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-008
+  domain: ai-agents
+  validation_check: agent_resource_limits_documented
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: AGENT-012
+  domain: ai-agents
+  validation_check: schema_required
+  fail_on: []
+  required_files:
+  - schemas/source-provenance.schema.json
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: AGENT-002
+  domain: ai-agents
+  validation_check: tool_boundaries_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: ASVS-006
+  domain: application-security
+  validation_check: api_unknown_fields_policy
+  fail_on: []
+  required_files:
+  - backend/app/schemas/
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: ASVS-002
+  domain: application-security
+  validation_check: api_contract_and_error_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: ASVS-005
+  domain: application-security
+  validation_check: auth_explicit_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: ASVS-007
+  domain: application-security
+  validation_check: auth_explicit_check
+  fail_on: []
+  required_files:
+  - docs/security.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: ASVS-004
+  domain: application-security
+  validation_check: safe_error_handling_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: ASVS-008
+  domain: application-security
+  validation_check: file_upload_policy_check
+  fail_on: []
+  required_files:
+  - docs/security.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: ASVS-001
+  domain: application-security
+  validation_check: input_validation_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: ASVS-000
+  domain: application-security
+  validation_check: asvs_versioned_refs_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: OWASP-001
+  domain: application-security
+  validation_check: owasp_top10_guidance_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: ASVS-003
+  domain: application-security
+  validation_check: secret_leak_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: DOCKER-011
+  domain: docker
+  validation_check: docker_secret_scan
+  fail_on: []
+  required_files:
+  - Dockerfile
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: DOCKER-005
+  domain: docker
+  validation_check: compose_dev_safety_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: DOCKER-007
+  domain: docker
+  validation_check: dockerfile_pinned_base_image
+  fail_on: []
+  required_files:
+  - Dockerfile
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: DOCKER-009
+  domain: docker
+  validation_check: docker_healthcheck_present
+  fail_on: []
+  required_files:
+  - Dockerfile
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: DOCKER-001
+  domain: docker
+  validation_check: dockerfile_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: DOCKER-002
+  domain: docker
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - .dockerignore
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: DOCKER-012
+  domain: docker
+  validation_check: docker_oci_labels_present
+  fail_on: []
+  required_files:
+  - Dockerfile
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: DOCKER-008
+  domain: docker
+  validation_check: docker_no_latest_tags
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: DOCKER-003
+  domain: docker
+  validation_check: docker_multistage_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: DOCKER-004
+  domain: docker
+  validation_check: docker_non_root_user_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: DOCKER-010
+  domain: docker
+  validation_check: docker_cache_policy
+  fail_on: []
+  required_files:
+  - Dockerfile
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: DOCKER-006
+  domain: docker
+  validation_check: docker_secret_copy_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-012
+  domain: fastapi
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - backend/app/middleware/request_id.py
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-001
+  domain: fastapi
+  validation_check: fastapi_structure_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-009
+  domain: fastapi
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - backend/app/core/errors.py
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-010
+  domain: fastapi
+  validation_check: cors_policy_check
+  fail_on: []
+  required_files:
+  - backend/app/core/config.py
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-006
+  domain: fastapi
+  validation_check: dependency_injection_guidance_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-005
+  domain: fastapi
+  validation_check: safe_error_handling_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-007
+  domain: fastapi
+  validation_check: directory_required
+  fail_on: []
+  required_files:
+  - backend/app/api/
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-003
+  domain: fastapi
+  validation_check: health_endpoint_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-014
+  domain: fastapi
+  validation_check: openapi_metadata_check
+  fail_on: []
+  required_files:
+  - backend/app/main.py
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-004
+  domain: fastapi
+  validation_check: openapi_metadata_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-013
+  domain: fastapi
+  validation_check: required_section_present
+  fail_on: []
+  required_files:
+  - docs/security.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-008
+  domain: fastapi
+  validation_check: api_schema_required
+  fail_on: []
+  required_files:
+  - backend/app/schemas/
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-002
+  domain: fastapi
+  validation_check: fastapi_security_explicit
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FASTAPI-011
+  domain: fastapi
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - backend/app/core/config.py
+  - .env.example
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FE-001
+  domain: frontend
+  validation_check: accessibility_basics_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: FE-005
+  domain: frontend
+  validation_check: frontend_accessible_names
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FE-002
+  domain: frontend
+  validation_check: design_tokens_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: warn
+    enterprise: warn
+- rule: FE-007
+  domain: frontend
+  validation_check: frontend_safe_links
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FE-003
+  domain: frontend
+  validation_check: form_validation_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FE-006
+  domain: frontend
+  validation_check: frontend_form_schema_validation
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FE-008
+  domain: frontend
+  validation_check: security_headers_policy
+  fail_on: []
+  required_files:
+  - docs/security.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: NEXT-004
+  domain: frontend
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - frontend/app/loading.tsx
+  - frontend/app/error.tsx
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: NEXT-001
+  domain: frontend
+  validation_check: nextjs_structure_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: NEXT-003
+  domain: frontend
+  validation_check: next_env_boundary_check
+  fail_on: []
+  required_files:
+  - frontend/.env.example
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: NEXT-002
+  domain: frontend
+  validation_check: next_boundary_check
+  fail_on: []
+  required_files:
+  - frontend/app/
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: FE-004
+  domain: frontend
+  validation_check: state_management_simplicity_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: warn
+    enterprise: warn
+- rule: GHA-012
+  domain: github-actions
+  validation_check: github_ci_tests_before_build
+  fail_on: []
+  required_files:
+  - .github/workflows/ci.yml
+  - tests/
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-003
+  domain: github-actions
+  validation_check: codeowners_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-011
+  domain: github-actions
+  validation_check: artifact_verification_present
+  fail_on: []
+  required_files:
+  - .github/workflows/release.yml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-001
+  domain: github-actions
+  validation_check: github_actions_minimal_permissions
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-004
+  domain: github-actions
+  validation_check: oidc_preferred_for_deployments
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: GHA-002
+  domain: github-actions
+  validation_check: github_actions_pinned_actions
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-009
+  domain: github-actions
+  validation_check: github_actions_permission_boundary
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-006
+  domain: github-actions
+  validation_check: github_actions_script_injection_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-005
+  domain: github-actions
+  validation_check: github_actions_secret_handling
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-007
+  domain: github-actions
+  validation_check: self_hosted_runner_risk_documented
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: GHA-010
+  domain: github-actions
+  validation_check: github_context_injection_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: GHA-008
+  domain: github-actions
+  validation_check: github_workflow_lint_configured
+  fail_on: []
+  required_files:
+  - .github/workflows/ci.yml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: OBS-006
+  domain: observability
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - schemas/audit-event.schema.json
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: OBS-004
+  domain: observability
+  validation_check: audit_events_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: OBS-001
+  domain: observability
+  validation_check: logging_guidance_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: OBS-002
+  domain: observability
+  validation_check: metrics_guidance_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: 'off'
+    standard: warn
+    production: warn
+    enterprise: fail
+- rule: OBS-008
+  domain: observability
+  validation_check: healthcheck_policy_present
+  fail_on: []
+  required_files:
+  - docs/operations.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: OBS-005
+  domain: observability
+  validation_check: logging_correlation_id_present
+  fail_on: []
+  required_files:
+  - docs/observability.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: OBS-007
+  domain: observability
+  validation_check: log_secret_scan
+  fail_on: []
+  required_files:
+  - docs/security.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: OBS-003
+  domain: observability
+  validation_check: tracing_guidance_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: 'off'
+    standard: 'off'
+    production: warn
+    enterprise: fail
+- rule: PY-014
+  domain: python
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - docs/dependency-policy.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-011
+  domain: python
+  validation_check: env_example_safe
+  fail_on: []
+  required_files:
+  - .env.example
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-003
+  domain: python
+  validation_check: python_linting_config_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: PY-016
+  domain: python
+  validation_check: secret_scan
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-013
+  domain: python
+  validation_check: pyproject_metadata_required
+  fail_on: []
+  required_files:
+  - pyproject.toml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-002
+  domain: python
+  validation_check: python_packaging_metadata_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: PY-006
+  domain: python
+  validation_check: python_layout_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: PY-001
+  domain: python
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - pyproject.toml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-010
+  domain: python
+  validation_check: pyproject_section_required
+  fail_on: []
+  required_files:
+  - pyproject.toml
+  - tests/
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-007
+  domain: python
+  validation_check: pyproject_build_system
+  fail_on: []
+  required_files:
+  - pyproject.toml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-008
+  domain: python
+  validation_check: pyproject_section_required
+  fail_on: []
+  required_files:
+  - pyproject.toml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-012
+  domain: python
+  validation_check: dependency_groups_present
+  fail_on: []
+  required_files:
+  - pyproject.toml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-015
+  domain: python
+  validation_check: directory_required
+  fail_on: []
+  required_files:
+  - src/
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-005
+  domain: python
+  validation_check: tests_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-009
+  domain: python
+  validation_check: pyproject_section_required
+  fail_on: []
+  required_files:
+  - pyproject.toml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: PY-004
+  domain: python
+  validation_check: python_typing_config_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: SSDF-003
+  domain: secure-development
+  validation_check: dependency_review_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: SSDF-001
+  domain: secure-development
+  validation_check: security_docs_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: SSDF-004
+  domain: secure-development
+  validation_check: secure_defaults_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: SSDF-005
+  domain: secure-development
+  validation_check: threat_model_notes_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: 'off'
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: SSDF-002
+  domain: secure-development
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - SECURITY.md
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: SLSA-004
+  domain: supply-chain
+  validation_check: attestation_metadata_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: 'off'
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: SUPPLY-001
+  domain: supply-chain
+  validation_check: dependabot_or_policy_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: SUPPLY-003
+  domain: supply-chain
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - docs/dependency-policy.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: SUPPLY-005
+  domain: supply-chain
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - LICENSE
+  - docs/license-policy.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: SLSA-002
+  domain: supply-chain
+  validation_check: artifact_manifest_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: SLSA-006
+  domain: supply-chain
+  validation_check: release_artifact_immutability
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: SUPPLY-006
+  domain: supply-chain
+  validation_check: sbom_present
+  fail_on: []
+  required_files:
+  - sbom.cdx.json
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: SLSA-003
+  domain: supply-chain
+  validation_check: sbom_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: 'off'
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: SUPPLY-002
+  domain: supply-chain
+  validation_check: scorecard_guidance_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: warn
+    enterprise: fail
+- rule: SLSA-005
+  domain: supply-chain
+  validation_check: signature_metadata_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: 'off'
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: SLSA-001
+  domain: supply-chain
+  validation_check: provenance_metadata_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: 'off'
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: SUPPLY-004
+  domain: supply-chain
+  validation_check: vulnerability_scan_configured
+  fail_on: []
+  required_files:
+  - .github/workflows/ci.yml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-201
+  domain: ruslan-agent-safety
+  validation_check: tool_permissions_declared
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-202
+  domain: ruslan-agent-safety
+  validation_check: no_secret_placeholders_in_prompts
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-203
+  domain: ruslan-agent-safety
+  validation_check: untrusted_context_boundary_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-204
+  domain: ruslan-agent-safety
+  validation_check: output_schema_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-205
+  domain: ruslan-agent-safety
+  validation_check: audit_guidance_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-206
+  domain: ruslan-agent-safety
+  validation_check: risky_tools_require_approval
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-101
+  domain: ruslan-ai-coder-control
+  validation_check: architecture_drift_detection
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-102
+  domain: ruslan-ai-coder-control
+  validation_check: prompt_pack_scope_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-103
+  domain: ruslan-ai-coder-control
+  validation_check: control_file_hash_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-104
+  domain: ruslan-ai-coder-control
+  validation_check: repair_prompt_available
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-105
+  domain: ruslan-ai-coder-control
+  validation_check: dependency_policy_check
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-106
+  domain: ruslan-ai-coder-control
+  validation_check: diff_validation_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-901
+  domain: ruslan-branding
+  validation_check: metadata_attribution_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: warn
+    enterprise: warn
+- rule: RMD-902
+  domain: ruslan-branding
+  validation_check: generator_metadata_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: warn
+    enterprise: warn
+- rule: RMD-903
+  domain: ruslan-branding
+  validation_check: definition_provenance_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: RMD-001
+  domain: ruslan-core
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - MATRIX_BLUEPRINT.yaml
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-002
+  domain: ruslan-core
+  validation_check: standards_lock_required
+  fail_on: []
+  required_files:
+  - MATRIX_STANDARDS.lock
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-003
+  domain: ruslan-core
+  validation_check: allowed_files_policy
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-004
+  domain: ruslan-core
+  validation_check: architecture_drift_detection
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-005
+  domain: ruslan-core
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - docs/architecture.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-006
+  domain: ruslan-core
+  validation_check: readme_sections_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-007
+  domain: ruslan-core
+  validation_check: local_run_instructions_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-008
+  domain: ruslan-core
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - MATRIXHUB.md
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: RMD-009
+  domain: ruslan-core
+  validation_check: file_required
+  fail_on: []
+  required_files:
+  - docs/standards-report.md
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-010
+  domain: ruslan-core
+  validation_check: repair_prompt_available
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-301
+  domain: ruslan-matrixhub
+  validation_check: matrixhub_validation_gate
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-302
+  domain: ruslan-matrixhub
+  validation_check: matrixhub_metadata_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-303
+  domain: ruslan-matrixhub
+  validation_check: remix_docs_required
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: warn
+    production: fail
+    enterprise: fail
+- rule: RMD-304
+  domain: ruslan-matrixhub
+  validation_check: standards_report_public
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-305
+  domain: ruslan-matrixhub
+  validation_check: signature_metadata_present
+  fail_on: []
+  required_files: []
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+- rule: RMD-107
+  domain: ruslan-ai-coder-control
+  validation_check: adapter_contract_preserved
+  result_on_failure: reject_or_repair
+- rule: RMD-108
+  domain: ruslan-ai-coder-control
+  validation_check: patch_scoped_output_required
+  result_on_failure: reject_or_repair
+- rule: RMD-109
+  domain: ruslan-ai-coder-control
+  validation_check: generic_adapter_used_for_unknown_coder
+  result_on_failure: reject_or_repair
+- rule: RMD-110
+  domain: ruslan-ai-coder-control
+  validation_check: claude_code_prompt_policy_check
+  result_on_failure: reject_or_repair
+- rule: RMD-111
+  domain: ruslan-ai-coder-control
+  validation_check: codex_chatgpt_prompt_policy_check
+  result_on_failure: reject_or_repair
+- rule: RMD-112
+  domain: ruslan-ai-coder-control
+  validation_check: ibm_bob_prompt_policy_check
+  result_on_failure: reject_or_repair
+- rule: RMD-113
+  domain: ruslan-ai-coder-control
+  validation_check: gitpilot_prompt_policy_check
+  result_on_failure: reject_or_repair
+- rule: RMD-114
+  domain: ruslan-ai-coder-control
+  validation_check: generic_ai_coder_prompt_policy_check
+  result_on_failure: reject_or_repair
+- rule: RMD-115
+  domain: ruslan-ai-coder-control
+  validation_check: architecture_drift_detection_required
+  result_on_failure: reject_or_repair
+- rule: RMD-116
+  domain: ruslan-ai-coder-control
+  validation_check: dependency_approval_record_required
+  result_on_failure: reject_or_repair
+- rule: RMD-117
+  domain: ruslan-ai-coder-control
+  validation_check: task_sequence_check
+  result_on_failure: reject_or_repair
+- rule: RMD-118
+  domain: ruslan-ai-coder-control
+  validation_check: prompt_stop_conditions_present
+  result_on_failure: reject_or_repair
+- rule: RMD-119
+  domain: ruslan-ai-coder-control
+  validation_check: validation_commands_required
+  result_on_failure: reject_or_repair
+- rule: RMD-120
+  domain: ruslan-ai-coder-control
+  validation_check: bounded_repair_prompt_required
+  result_on_failure: reject_or_repair

@@ -1,0 +1,13 @@
+schema_version: '1.0'
+name: Ruslan Magana Definitions
+version: 1.0.0
+owner: Ruslan Magana
+homepage: https://ruslanmv.com/definitions
+mission: AI coders should be controlled workers, not uncontrolled architects.
+principles:
+- The blueprint is the contract.
+- Standards are locked and versioned.
+- AI-coder edits are task-scoped and validated.
+- Generated projects must be understandable, local-first, auditable, and remixable.
+- MatrixHub publishes only validated artifacts.
+index: index.yaml

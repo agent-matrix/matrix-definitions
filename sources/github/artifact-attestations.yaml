@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: github.artifact-attestations
+name: GitHub artifact attestations
+authority: GitHub
+tier: 1
+type: source-metadata
+url: https://docs.github.com/en/actions/concepts/security/artifact-attestations
+refresh_policy: monthly
+domains:
+- supply-chain

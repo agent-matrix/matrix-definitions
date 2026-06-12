@@ -1,0 +1,35 @@
+schema_version: '1.0'
+policy:
+  adapter: ibm-bob
+  name: IBM Bob
+  best_for: enterprise coding workflow where compliance and audit boundaries are explicit
+  prompt_style: enterprise-safe task prompt with standards and approval gates
+  required_context_files:
+  - MATRIX_BLUEPRINT.yaml
+  - MATRIX_STANDARDS.lock
+  - MATRIX_TASKS.md
+  - MATRIX_ALLOWED_CHANGES.md
+  - MATRIX_ACCEPTANCE_CRITERIA.md
+  - MATRIX_VALIDATION.md
+  must_include:
+  - allowed files
+  - forbidden changes
+  - acceptance criteria
+  - validation commands
+  - stop conditions
+  - expected output format
+  must_not_do:
+  - change architecture
+  - modify control files
+  - add unapproved dependencies
+  - invent features outside the task
+  - skip tests
+rules:
+- RMD-101
+- RMD-102
+- RMD-107
+- RMD-108
+- RMD-109
+- RMD-118
+- RMD-119
+- RMD-112

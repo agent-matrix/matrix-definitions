@@ -1,0 +1,33 @@
+schema_version: '1.0'
+id: RMD-205
+title: Tool calls must be auditable
+domain: ruslan-agent-safety
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Agent templates must document or implement audit logging for tool calls and high-risk decisions.
+source_refs: []
+applies_to:
+  project_types:
+  - all
+generator:
+  action: create_audit_guidance
+validation:
+  kind: audit_guidance_required
+matrix_builder:
+  expose_in_report: true
+  report_section: ruslan-agent-safety
+  failure_message: Agent templates must document or implement audit logging for tool calls and high-risk decisions.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90
+rationale: Ruslan Magana Definition used to keep AI-coder generation controlled, auditable, and repeatable.

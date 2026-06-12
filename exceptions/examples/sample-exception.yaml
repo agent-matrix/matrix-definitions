@@ -1,0 +1,9 @@
+schema_version: '1.0'
+id: EXC-2026-0001
+rule_id: DOCKER-003
+reason: Frontend-only template has no runtime container in starter profile.
+owner: Ruslan Magana
+expires_at: '2026-09-01'
+status: draft
+compensating_controls:
+- documented local development path

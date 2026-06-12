@@ -1,0 +1,9 @@
+schema_version: '1.0'
+profile: matrixhub-publishable
+extends: standard
+required_rules:
+- RMD-301
+- RMD-302
+- RMD-303
+- RMD-304
+description: Profile required before publishing to MatrixHub.

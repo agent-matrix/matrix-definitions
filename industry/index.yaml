@@ -1,0 +1,12 @@
+schema_version: '1.0'
+domains:
+- application-security
+- secure-development
+- supply-chain
+- github-actions
+- python
+- fastapi
+- frontend
+- docker
+- observability
+- ai-agents

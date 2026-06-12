@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ruslanmv.com/matrix-definitions/schemas/matrixhub-template.schema.json",
+  "title": "MatrixHub Template Metadata",
+  "description": "MatrixHub policy and metadata documents.",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "semver": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$"
+    },
+    "isoDateTime": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "experimental",
+        "stable",
+        "deprecated",
+        "placeholder"
+      ]
+    },
+    "qualityLevel": {
+      "type": "string",
+      "enum": [
+        "starter",
+        "standard",
+        "production",
+        "enterprise"
+      ]
+    },
+    "enforcementValue": {
+      "type": "string",
+      "enum": [
+        "off",
+        "warn",
+        "fail"
+      ]
+    },
+    "ruleId": {
+      "type": "string",
+      "pattern": "^(RMD|AGENT|ASVS|OWASP|SSDF|SLSA|SUPPLY|GHA|PY|FASTAPI|NEXT|FE|FRONTEND|DOCKER|OBS|MATRIXHUB|DOC|SEC|API)-[0-9]{3,4}$"
+    },
+    "sourceRef": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "pathString": {
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "pattern": "(^/|\\.\\.)"
+      }
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "enforcementMatrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "starter": {
+          "$ref": "#/$defs/enforcementValue"
+        },
+        "standard": {
+          "$ref": "#/$defs/enforcementValue"
+        },
+        "production": {
+          "$ref": "#/$defs/enforcementValue"
+        },
+        "enterprise": {
+          "$ref": "#/$defs/enforcementValue"
+        }
+      },
+      "minProperties": 1
+    }
+  },
+  "required": [
+    "schema_version"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "#/$defs/schemaVersion"
+    },
+    "template_type": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "gate": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/status"
+    },
+    "enforcement": {
+      "$ref": "#/$defs/enforcementMatrix"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ruleId"
+      }
+    },
+    "required_files": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/pathString"
+      }
+    },
+    "required_metadata": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_reports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "publication_gates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "boolean",
+          "string",
+          "number"
+        ]
+      }
+    },
+    "quality_levels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/qualityLevel"
+      }
+    },
+    "default": {
+      "$ref": "#/$defs/qualityLevel"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+schema_version: '1.0'
+tiers:
+- tier: 1
+  name: official
+  description: Official standards bodies or vendor documentation. May create automatic rule proposals, never automatic activation.
+- tier: 2
+  name: trusted-ecosystem
+  description: High-quality ecosystem references. Human review required.
+- tier: 3
+  name: community
+  description: Blogs, examples, social sources. Informational only; cannot create rules automatically.

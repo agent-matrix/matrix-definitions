@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: python.ruff
+name: Ruff documentation
+authority: Ruff
+tier: 2
+type: trusted-ecosystem-docs
+url: https://docs.astral.sh/ruff/
+refresh_policy: monthly
+domains:
+- python

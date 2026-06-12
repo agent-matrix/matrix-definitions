@@ -1,0 +1,9 @@
+schema_version: '1.0'
+mappings:
+- source: nist.ssdf.sp800-218
+  rules:
+  - SSDF-001
+  - SSDF-002
+  - SSDF-003
+  - SSDF-004
+  - SSDF-005

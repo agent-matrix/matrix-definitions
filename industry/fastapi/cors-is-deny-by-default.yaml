@@ -1,0 +1,43 @@
+schema_version: '1.0'
+id: FASTAPI-010
+title: CORS is deny-by-default
+domain: fastapi
+severity: high
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: FastAPI templates must not generate permissive wildcard CORS for production or enterprise profiles.
+source_refs:
+- fastapi.docs.security
+- owasp.asvs
+applies_to:
+  project_types:
+  - fastapi-backend
+  - fullstack-ai-app
+  files: &id001
+  - backend/app/core/config.py
+generator:
+  action: enforce_config
+  required_files: &id002
+  - backend/app/core/config.py
+  template_requirements:
+  - cors_explicit_origins
+  files: *id001
+validation:
+  kind: cors_policy_check
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: fastapi
+  failure_message: FastAPI templates must not generate permissive wildcard CORS for production or enterprise profiles.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

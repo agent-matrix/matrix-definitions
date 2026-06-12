@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: matrix.agent-safety.human-approval
+name: Matrix curated human approval source
+authority: Matrix
+tier: 2
+type: source-metadata
+url: https://ruslanmv.com/definitions
+refresh_policy: monthly
+domains:
+- ai-agents

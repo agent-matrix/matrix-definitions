@@ -1,0 +1,18 @@
+schema_version: '1.0'
+name: Matrix Definitions Canary Matrix
+description: Representative controlled blueprints used to test agent-generator compatibility.
+canaries:
+- id: github-repo-intelligence-agent
+  profile: standard
+  path: canaries/blueprints/github-repo-intelligence-agent
+- id: document-qa-agent
+  profile: standard
+  path: canaries/blueprints/document-qa-agent
+- id: developer-portfolio-reviewer
+  profile: starter
+  path: canaries/blueprints/developer-portfolio-reviewer
+required_prompt_adapters:
+- claude-code
+- cursor
+- codex-chatgpt
+- gitpilot

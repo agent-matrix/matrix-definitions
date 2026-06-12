@@ -1,0 +1,13 @@
+schema_version: '1.0'
+rules:
+- RMD-301
+- RMD-302
+- RMD-303
+- RMD-304
+- RMD-305
+required_files:
+- README.md
+- MATRIX_BLUEPRINT.yaml
+- MATRIX_STANDARDS.lock
+- docs/standards-report.md
+- MATRIXHUB.md

@@ -1,0 +1,8 @@
+schema_version: '1.0'
+canaries:
+- name: github-repo-intelligence-agent
+  profile: standard
+- name: document-qa-agent
+  profile: standard
+- name: developer-portfolio-reviewer
+  profile: starter

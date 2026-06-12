@@ -1,0 +1,42 @@
+schema_version: '1.0'
+id: AGENT-015
+title: Code execution tools run in a sandbox
+domain: ai-agents
+severity: critical
+status: stable
+version: 1.0.0
+owner: Ruslan Magana
+created_at: '2026-06-12T00:00:00Z'
+summary: Agents that execute code or shell commands must define a sandbox boundary and human approval requirements.
+source_refs:
+- matrix.agent-safety.human-approval
+applies_to:
+  project_types:
+  - ai-agent
+  - fullstack-ai-app
+  files: &id001
+  - docs/tool-sandbox.md
+generator:
+  action: render_file
+  required_files: &id002
+  - docs/tool-sandbox.md
+  template_requirements:
+  - code_execution_sandbox_required
+  files: *id001
+validation:
+  kind: tool_sandbox_policy
+  required_files: *id002
+matrix_builder:
+  expose_in_report: true
+  report_section: ai-agents
+  failure_message: Agents that execute code or shell commands must define a sandbox boundary and human approval requirements.
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: fail
+    production: fail
+    enterprise: fail
+exceptions:
+  allowed: true
+  requires_expiry: true
+  max_days: 90

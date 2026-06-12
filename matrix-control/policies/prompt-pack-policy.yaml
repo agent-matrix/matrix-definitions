@@ -1,0 +1,36 @@
+schema_version: '1.0'
+policy:
+  name: Prompt Pack Policy
+  default_mode: task-scoped
+  required_sections:
+  - role_boundary
+  - blueprint_summary
+  - active_task
+  - allowed_files
+  - forbidden_changes
+  - acceptance_criteria
+  - validation_commands
+  - stop_conditions
+  - output_format
+  forbidden_prompt_patterns:
+  - build whatever you think is best
+  - change the architecture as needed
+  - add any library you want
+  - ignore existing files
+  supported_adapters:
+  - claude-code
+  - codex-chatgpt
+  - cursor
+  - ibm-bob
+  - gitpilot
+  - generic-ai-coder
+rules:
+- RMD-102
+- RMD-107
+- RMD-109
+- RMD-110
+- RMD-111
+- RMD-112
+- RMD-113
+- RMD-114
+- RMD-118

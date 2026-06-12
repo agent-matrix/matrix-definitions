@@ -1,0 +1,21 @@
+schema_version: '1.0'
+id: TEST-001
+title: Valid fixture rule
+domain: test
+severity: low
+status: draft
+version: 0.1.0
+summary: Fixture only.
+applies_to:
+  project_types:
+  - all
+generator:
+  action: none
+validation:
+  kind: none
+agent_generator:
+  enforcement:
+    starter: warn
+    standard: warn
+    production: warn
+    enterprise: warn

@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: openssf.slsa
+name: OpenSSF SLSA
+authority: OpenSSF
+tier: 1
+type: source-metadata
+url: https://slsa.dev/
+refresh_policy: monthly
+domains:
+- supply-chain

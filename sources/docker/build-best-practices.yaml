@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: docker.build.best-practices
+name: Docker build best practices
+authority: Docker
+tier: 1
+type: source-metadata
+url: https://docs.docker.com/build/building/best-practices/
+refresh_policy: monthly
+domains:
+- docker

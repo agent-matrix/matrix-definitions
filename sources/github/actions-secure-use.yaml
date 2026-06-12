@@ -1,0 +1,10 @@
+schema_version: '1.0'
+id: github.actions.secure-use
+name: GitHub Actions secure use
+authority: GitHub
+tier: 1
+type: source-metadata
+url: https://docs.github.com/en/actions/reference/security/secure-use
+refresh_policy: monthly
+domains:
+- github-actions
