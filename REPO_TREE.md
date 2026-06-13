@@ -55,10 +55,6 @@ docs/agent-generator-verification.md
 docs/ai-coder-adapters.md
 docs/ai-coder-control.md
 docs/architecture.md
-docs/batch3-completion.md
-docs/batch4-completion.md
-docs/batch5-completion.md
-docs/batch6-completion.md
 docs/canary-validation.md
 docs/compatibility.md
 docs/dependency-approval.md
