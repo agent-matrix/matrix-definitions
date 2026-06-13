@@ -1,0 +1,48 @@
+name: Pages
+
+# Deploy the public /definitions site to GitHub Pages.
+# Enable once: Settings -> Pages -> Build and deployment -> Source: GitHub Actions.
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'definitions/**'
+      - 'packs/current/manifest.json'
+      - 'VERSION'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble static site
+        run: |
+          set -euo pipefail
+          mkdir -p _site/packs/current
+          cp -r definitions/. _site/definitions/
+          cp VERSION _site/VERSION
+          cp packs/current/manifest.json _site/packs/current/manifest.json
+          touch _site/.nojekyll
+          # root -> /definitions/
+          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=definitions/"><title>Matrix Definitions</title><a href="definitions/">Matrix Definitions</a>\n' > _site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
