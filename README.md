@@ -1,150 +1,156 @@
+<div align="center">
+
 # Matrix Definitions
 
-**Matrix Definitions** is the signed source of truth for **Matrix Builder**, **agent-generator**, **MatrixHub**, **GitPilot**, and the RuslanMV controlled AI-coding ecosystem.
+### The signed source of truth for controlled AI coding.
 
-The goal is simple:
+**Locked standards, rules, and blueprints that AI coding tools verify before they write a line of code.**
 
-> AI coders should not generate random code. They should implement locked blueprints using signed, validated, current standards.
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c878?labelColor=02170f)](LICENSE)
+[![Pack](https://img.shields.io/badge/pack-2026.06.0-22c878?labelColor=02170f)](packs/current/manifest.json)
+[![Signed](https://img.shields.io/badge/signed-cosign%20%C2%B7%20SLSA%20provenance-53f39d?labelColor=02170f)](#trust--supply-chain)
+[![CI](https://github.com/agent-matrix/matrix-definitions/actions/workflows/ci.yml/badge.svg)](https://github.com/agent-matrix/matrix-definitions/actions/workflows/ci.yml)
+[![Works with](https://img.shields.io/badge/feeds-Matrix%20Builder%20·%20agent--generator%20·%20MatrixHub%20·%20GitPilot-53f39d?labelColor=02170f)](#who-consumes-it)
 
-Matrix Definitions contains:
+[**The standard (live)**](https://agent-matrix.github.io/matrix-definitions/definitions/) · [**Current pack**](packs/current/manifest.json) · [**Docs**](docs/) · [**Sponsor**](https://github.com/sponsors/ruslanmv)
 
-- industry standards mapped into generator rules,
-- Ruslan Magana Definitions (RMD) for controlled AI-coder behavior,
-- MatrixHub publication requirements,
-- quality profiles from Starter to Enterprise,
-- schemas for machine-readable contracts,
-- examples for Claude Code, Cursor, Codex/ChatGPT, GitPilot, IBM Bob, and generic AI coders,
-- canary blueprints used to prove that packs can be consumed by `agent-generator`.
+</div>
 
-## Why this exists
+---
 
-AI coding tools are powerful, but direct prompts often go out of control. They may change architecture, add unapproved dependencies, ignore tests, introduce hidden services, or silently change the original idea.
+## What it is
 
-Matrix Builder solves this by inserting a control layer:
+**Matrix Definitions** is the signed, versioned **contract layer** for the Matrix controlled‑AI‑coding
+ecosystem — **Matrix Builder**, **agent‑generator**, **MatrixHub**, and **GitPilot**. It turns
+industry best practices into machine‑readable rules, blueprints, and quality profiles, packages them
+into one **verifiable pack**, and lets every AI coding tool consume the *same* source of truth.
+
+> AI coders shouldn't generate random code. They should implement **locked blueprints** using
+> **signed, validated, current standards**.
+
+## Why it exists
+
+Direct prompts drift: models change the architecture, add unapproved dependencies, skip tests, or
+quietly redefine the goal. Matrix Definitions inserts a control layer so the **blueprint stays the
+architect and the AI coder is the worker**:
 
 ```text
-Idea
-  -> Blueprint candidates
-  -> Selected MATRIX_BLUEPRINT.yaml
-  -> MATRIX_STANDARDS.lock
-  -> Task-scoped AI-coder prompts
-  -> Validation and drift detection
-  -> Repair prompt or approval
+Idea → Blueprint candidates → MATRIX_BLUEPRINT.yaml → MATRIX_STANDARDS.lock
+     → task-scoped AI-coder prompts → validation & drift detection → repair or approval
 ```
 
-The AI coder becomes the worker. The blueprint remains the architect.
-
-## Main consumers
+## Who consumes it
 
 | Consumer | How it uses this repo |
 |---|---|
-| `agent-generator` | Loads signed packs, compiles controlled blueprints, generates scaffold files, prompt packs, and validation reports. |
-| Matrix Builder | Shows the user which standards and Ruslan Magana Definitions controlled a generated blueprint. |
-| MatrixHub | Publishes only artifacts that include required metadata, standards locks, validation reports, and publication gates. |
-| GitPilot | Uses prompt and control policies for task-scoped, approval-aware coding sessions. |
-| Claude Code / Cursor / Codex / IBM Bob | Receive task-scoped prompts derived from the same contracts. |
+| **agent‑generator** | Verifies and loads the signed pack, compiles controlled blueprints, emits scaffolds, prompt packs, and validation reports. |
+| **Matrix Builder** | Shows which standards and definitions governed a generated blueprint. |
+| **MatrixHub** | Publishes only artifacts that satisfy the standards lock, validation, and publication gates. |
+| **GitPilot** | Drives task‑scoped, approval‑aware coding sessions from the same control policies. |
+| **Claude Code · Cursor · Codex · IBM Bob** | Receive task‑scoped prompts derived from the same contracts. |
 
-## Repository map
+## Quality profiles
+
+| Profile | For | Adds |
+|---|---|---|
+| **Starter** | quick local projects | clear README, env example, basic controls |
+| **Standard** | the Matrix Builder default | tests, Docker, CI, Dependabot, standards report, AI‑coder control files |
+| **Production** | real workloads | hardened security, SBOM/provenance, observability, stricter validation |
+| **Enterprise** | regulated teams | audit, policy gates, approval requirements, signing, provenance, MatrixHub hardening |
+
+## Trust & supply chain
+
+Every release is a **signed standards pack** — built so a security team can verify exactly what their
+AI tooling consumes:
+
+- **Signed** with Cosign (keyless, GitHub OIDC) + GitHub artifact attestations.
+- **SLSA provenance** and an **SBOM** accompany each release.
+- **Checksummed**, content‑addressed, and reproducible.
+- Verification is the gate — tools load only a pack that passes it.
 
 ```text
-schemas/          JSON Schemas for rules, packs, blueprints, locks, and validation reports
-sources/          Trusted source registry and source-tier policy
-industry/         Machine-readable industry rules
-ruslan/           Ruslan Magana Definitions
-matrixhub/        MatrixHub template and publication rules
-profiles/         Starter, Standard, Production, Enterprise quality profiles
-mappings/         Standards -> generator actions -> validation checks -> template files
-matrix-control/   AI-coder control templates and policies
-packs/current/    Compiled standards pack consumed by tools
-release/          Release, signing, and verification policies
-updater/          Standards update candidate process
-examples/         Human-readable examples and prompt packs
-canaries/         Canary blueprints for integration testing
-tools/            Validation, pack build, signing, verification, canary scripts
-tests/            Repository tests
+packs/current/
+├── manifest.json        # pack id, version, compatibility, signature + checksum pointers
+├── combined.pack.yaml   # the compiled standards tools consume
+├── checksums.txt        # integrity
+└── signatures/          # cosign bundle · GitHub attestation · provenance
 ```
+
+Details: [release‑automation](docs/release-automation.md) · [pack‑verification](docs/pack-verification.md) · [signing‑and‑provenance](docs/signing-and-provenance.md).
 
 ## Quick start
 
 ```bash
 python -m pip install pyyaml jsonschema pytest
-python tools/validate_schemas.py
+python tools/validate_schemas.py     # schemas + contracts
 python tools/validate_rules.py
-python tools/check_rule_ids.py
-python tools/validate_contracts.py
-python tools/validate_canaries.py
-python tools/build_pack.py
-python tools/verify_pack.py
+python tools/validate_canaries.py    # blueprints really compile with agent-generator
+python tools/build_pack.py           # build packs/current
+python tools/verify_pack.py          # verify checksums + signatures
 pytest -q
 ```
 
-Expected result:
+## How tools should consume it
+
+Load **only the compiled, verified pack** — never loose YAML:
 
 ```text
-All schemas and contracts pass.
-The current pack is built and verified.
-Canary blueprints are valid.
+verify manifest → verify checksums/signature → load combined.pack.yaml
+→ select quality profile → compile MATRIX_BLUEPRINT.yaml → create MATRIX_STANDARDS.lock
+→ generate task-scoped prompt pack → validate output
 ```
 
-## How `agent-generator` should consume this repo
+Integration walk‑through: [`docs/agent-generator-integration-guide.md`](docs/agent-generator-integration-guide.md).
 
-`agent-generator` should load only the compiled and verified pack:
+## Repository map
+
+<details>
+<summary>Directory layout</summary>
 
 ```text
-packs/current/manifest.json
-packs/current/combined.pack.yaml
-packs/current/checksums.txt
-packs/current/signatures/
+schemas/         JSON Schemas for rules, packs, blueprints, locks, validation reports
+sources/         Trusted source registry + source-tier policy
+industry/        Machine-readable industry rules
+ruslan/          Ruslan Magana Definitions (controlled AI-coder behavior)
+matrixhub/       MatrixHub template + publication rules
+profiles/        Starter · Standard · Production · Enterprise quality profiles
+mappings/        standards → generator actions → validation checks → template files
+matrix-control/  AI-coder control templates and policies
+packs/current/   the compiled, signed pack tools consume
+release/         release, signing, and verification policies
+updater/         standards update-candidate process
+examples/        human-readable examples and prompt packs
+canaries/        canary blueprints for integration testing
+tools/           validate / build / sign / verify / canary scripts
+tests/           repository tests
+definitions/     the public landing site (GitHub Pages)
 ```
 
-It should not load random loose YAML files directly. The safe flow is:
+</details>
 
-```text
-verify manifest
-verify checksums/signature
-load combined.pack.yaml
-select quality profile
-compile MATRIX_BLUEPRINT.yaml
-create MATRIX_STANDARDS.lock
-generate task-scoped prompt pack
-validate output
-```
+## The ecosystem
 
-A minimal integration example is in [`docs/agent-generator-integration-guide.md`](docs/agent-generator-integration-guide.md).
-
-## Quality profiles
-
-| Profile | Purpose |
+| Project | Role |
 |---|---|
-| Starter | Minimal local project with clear README, environment example, and basic controls. |
-| Standard | Default Matrix Builder level: tests, Docker, GitHub Actions, Dependabot, standards report, AI-coder control files. |
-| Production | Adds stronger security, SBOM/provenance, observability, stricter validations. |
-| Enterprise | Adds audit, policy gates, approval requirements, signing, provenance, and MatrixHub publication hardening. |
+| **Matrix Definitions** | the signed standards — the source of truth (this repo) |
+| **Matrix Builder** | idea → controlled Matrix Bundle → validate → publish |
+| **agent‑generator** | the deterministic engine that compiles + validates |
+| **MatrixHub** | the registry of trusted, validated bundles |
+| **GitPilot** | a Matrix‑native AI coder |
 
-## Release model
+## Versioning
 
-Releases are built as signed standards packs. Local development signing files are placeholders, while production releases should use GitHub OIDC, Cosign keyless signing, artifact attestations, checksums, SBOM, and provenance metadata.
+Current pack: **2026.06.0** (`status: stable`). Packs are date‑versioned (`YYYY.MM.patch`) and each
+carries explicit `compatibility` ranges for the tools that consume it.
 
-See:
+---
 
-- [`docs/release-automation.md`](docs/release-automation.md)
-- [`docs/pack-verification.md`](docs/pack-verification.md)
-- [`docs/signing-and-provenance.md`](docs/signing-and-provenance.md)
+<div align="center">
 
-## Version
+**Give AI coders a contract, not a prompt.**
 
-Current target release: **2026.06.0**
+Maintained in the open by **[Ruslan Magana](https://ruslanmv.com)** · MIT License · [Sponsor](https://github.com/sponsors/ruslanmv)
 
-## Brand and attribution
+Generated artifacts carry: _“Built with Matrix Builder using Ruslan Magana Definitions and Matrix Definitions.”_
 
-This repository defines **Ruslan Magana Definitions** for the RuslanMV ecosystem and should be presented publicly at:
-
-```text
-https://ruslanmv.com/definitions
-```
-
-Generated artifacts should include attribution similar to:
-
-```text
-Generated with Matrix Builder using Ruslan Magana Definitions and Matrix Definitions.
-```
+</div>
